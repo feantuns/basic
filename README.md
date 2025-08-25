@@ -13,3 +13,5 @@ Entendendo as escolhas de stack do chat gpt, segundo ele o melhor é usar Next.j
 Observando o wappalyzer essa parece ser realmente a stack do site original, eles usam Next.js e Sanity. Também parecem usar Google Tag Manager.
 
 A diferença é que o site do frontend practice recomendou utilizar outras libs de animação, como a locomotive scroll para animações baseadas no scroll da página.
+
+https://chatgpt.com/s/t_68ac3b8a832c8191b8a416d175ab327b
