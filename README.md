@@ -208,3 +208,7 @@ For each page, follow:\*\* \*\* **(a) assemble modules → (b) wire content → 
 8. Case Study template + gallery modules wired to CMS.
 9. Analytics + consent baseline + Sentry wiring.
 10. Lighthouse/axe gates + first perf pass on Home/Case Study.
+
+---
+
+Learning more about Turborepo. So it solves problems with monorepo architecture.
