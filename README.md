@@ -212,3 +212,9 @@ For each page, follow:\*\* \*\* **(a) assemble modules → (b) wire content → 
 ---
 
 Learning more about Turborepo. So it solves problems with monorepo architecture.
+
+Uau Turburepo simplesmente funciona.
+
+Você adiciona um novo package e ao rodar `pnpm exec turbo dev` ele roda todos os apps e packages. Maneiro.
+
+Testing out deploy at Vercel.
