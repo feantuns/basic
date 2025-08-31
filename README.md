@@ -218,3 +218,7 @@ Uau Turburepo simplesmente funciona.
 Você adiciona um novo package e ao rodar `pnpm exec turbo dev` ele roda todos os apps e packages. Maneiro.
 
 Testing out deploy at Vercel.
+
+Really easy to deploy with Vercel. Turborepo was made by them, so it makes sense.
+
+Trying now to add a dependency only to single project in app.
