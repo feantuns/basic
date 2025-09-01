@@ -222,3 +222,9 @@ Testing out deploy at Vercel.
 Really easy to deploy with Vercel. Turborepo was made by them, so it makes sense.
 
 Trying now to add a dependency only to single project in app.
+
+```bash
+pnpm i @vercel/analytics --filter=web
+```
+
+This is how to add a dependency only to specific package/app in a turbo repo.
