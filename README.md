@@ -228,3 +228,9 @@ pnpm i @vercel/analytics --filter=web
 ```
 
 This is how to add a dependency only to specific package/app in a turbo repo.
+
+Nice, deploy happens automatically on push to main.
+
+Analytics works out of the box.
+
+Next step: Create and use Sanity models for content.
