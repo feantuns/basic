@@ -234,3 +234,11 @@ Nice, deploy happens automatically on push to main.
 Analytics works out of the box.
 
 Next step: Create and use Sanity models for content.
+
+I'm starting to believe we're overengineering stuff.
+
+Maybe we should focus solely on building the website with all its animations and so on.
+
+Instead of cofiguring it to be able to add new pages and content managed by a marketing team.
+
+Right. So let's focus on the web app.
