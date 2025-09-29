@@ -242,3 +242,7 @@ Maybe we should focus solely on building the website with all its animations and
 Instead of cofiguring it to be able to add new pages and content managed by a marketing team.
 
 Right. So let's focus on the web app.
+
+Thinking hard about from where to begin building this app. I've got the videos of the hero section. Maybe should start from there.
+
+I'm considering to start with the initial load also, because it would be something useful to know how to build one to use maybe in my job.
