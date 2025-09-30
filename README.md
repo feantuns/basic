@@ -246,3 +246,13 @@ Right. So let's focus on the web app.
 Thinking hard about from where to begin building this app. I've got the videos of the hero section. Maybe should start from there.
 
 I'm considering to start with the initial load also, because it would be something useful to know how to build one to use maybe in my job.
+
+Levantando exemplos de splash screens.
+
+[https://codepen.io/glorious73/pen/GReXbvV](https://codepen.io/glorious73/pen/GReXbvV)
+
+Essa fica piscando uma imagem. Mas usa um setTimeout chumbado no código para mostrar/ocultar.
+
+Entendendo qual lib usar para animação. Descobri que a GSAP agora é totalmente gratuita para uso graças ao WebFlow.
+
+GSAP significa GreenSock Animation Platform.
