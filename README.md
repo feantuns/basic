@@ -256,3 +256,9 @@ Essa fica piscando uma imagem. Mas usa um setTimeout chumbado no código para mo
 Entendendo qual lib usar para animação. Descobri que a GSAP agora é totalmente gratuita para uso graças ao WebFlow.
 
 GSAP significa GreenSock Animation Platform.
+
+Como adicionar dependências apenas no packages/apps necessários:
+
+```bash
+pnpm add framer-motion --filter=web
+```
