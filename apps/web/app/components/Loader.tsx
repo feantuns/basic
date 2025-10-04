@@ -14,17 +14,19 @@ export default function Loader() {
       style={{ backgroundColor: "#f4f4f4ff" }}
       initial={{ y: 0 }}
       animate={{ y: "-100%" }}
-      transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1], delay: 1 }}
+      transition={{ duration: 1, ease: [0.77, 0, 0.175, 1], delay: 1.5 }}
       onAnimationComplete={() => setLoading(false)}
     >
-      <motion.h1
-        className="text-black text-5xl font-bold"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Minha Empresa
-      </motion.h1>
+      <h1 className="text-black text-8xl font-bold">
+        Minha <br /> Empresa
+      </h1>
+      <motion.div
+        className="fixed inset-0 flex items-center justify-center z-80"
+        style={{ backgroundColor: "#f4f4f4ff" }}
+        initial={{ y: "100%" }}
+        animate={{ y: "0" }}
+        transition={{ duration: 2, ease: [0.77, 0, 0.175, 1], delay: 0.5 }}
+      ></motion.div>
     </motion.div>
   );
 }
