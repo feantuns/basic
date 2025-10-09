@@ -22,7 +22,7 @@ export default function Loader() {
       style={{ backgroundColor: "#f4f4f4ff" }}
       initial={{ y: 0 }}
       animate={{ y: "-100%" }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
       onAnimationComplete={() => setLoading(false)}
     >
       <div className="w-[427px] h-[200px] max-w-full max-h-full">
