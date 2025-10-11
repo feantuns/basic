@@ -1,19 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export default function Loader() {
-  const [loading, setLoading] = useState(true);
-
   return (
     <motion.div
       className="fixed inset-0 flex items-center justify-center z-50"
       style={{ backgroundColor: "#f4f4f4ff" }}
       initial={{ y: 0 }}
       animate={{ y: "-100%" }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
-      onAnimationComplete={() => setLoading(false)}
+      transition={{ duration: 0.4, ease: "easeOut", delay: 0.5 }}
     >
       <div className="w-[427px] h-[200px] max-w-full max-h-full">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 427 200">
