@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 
-export default function Loader() {
+interface Props {
+  onAnimationComplete?: () => void;
+}
+
+export default function Loader({ onAnimationComplete }: Props) {
   return (
     <motion.div
       className="fixed inset-0 flex items-center justify-center z-50"
@@ -10,6 +14,7 @@ export default function Loader() {
       initial={{ y: 0 }}
       animate={{ y: "-100%" }}
       transition={{ duration: 0.4, ease: "easeOut", delay: 0.5 }}
+      onAnimationComplete={onAnimationComplete}
     >
       <div className="w-[427px] h-[200px] max-w-full max-h-full">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 427 200">
