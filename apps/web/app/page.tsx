@@ -1,10 +1,24 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useSpring } from "framer-motion";
 import Loader from "./components/Loader";
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isActive, setIsActive] = useState(false);
+  // Smooth motion for x and y
+  const springX = useSpring(50, { stiffness: 150, damping: 15 });
+  const springY = useSpring(50, { stiffness: 150, damping: 15 });
+
+  useEffect(() => {
+    const handleMove = (e: any) => {
+      springX.set(e.clientX);
+      springY.set(e.clientY);
+    };
+    if (isActive) window.addEventListener("mousemove", handleMove);
+    else window.removeEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, [isActive]);
 
   const playVideo = () => {
     if (videoRef.current) {
@@ -27,6 +41,26 @@ export default function Home() {
             document.body.style.cursor = "auto";
           }}
         >
+          {/* Custom cursor */}
+          <motion.div
+            className="absolute pointer-events-none z-50 flex items-center justify-center w-24 h-24 rounded-full bg-white text-center"
+            style={{
+              x: isActive ? springX : "50%",
+              y: isActive ? springY : "50%",
+              top: isActive ? undefined : "50%",
+              left: isActive ? undefined : "50%",
+              translateX: "-50%",
+              translateY: "-50%",
+            }}
+            animate={{
+              scale: isActive ? 1 : 0.8,
+              opacity: isActive ? 1 : 0.7,
+            }}
+            transition={{ type: "spring", stiffness: 120, damping: 15 }}
+          >
+            {/* Example of children inside custom cursor */}
+            <div className="text-xs font-semibold">Hover Zone</div>
+          </motion.div>
           <video
             ref={videoRef}
             autoPlay
@@ -38,6 +72,29 @@ export default function Home() {
           >
             <source src="/hero_video.mp4" type="video/mp4" />
           </video>
+        </section>
+        <section>
+          <div className="max-w-3xl mx-auto p-4">
+            <h1 className="text-4xl font-bold mb-4">
+              Welcome to the Video Page
+            </h1>
+            <p className="mb-4">
+              This is a sample page with a full-screen video background. Hover
+              over the video to hide the cursor.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              euismod, nunc ut laoreet tincidunt, nunc nisl aliquam nunc, eget
+              aliquam nisl nunc euismod nunc. Sed euismod, nunc ut laoreet
+              tincidunt, nunc nisl aliquam nunc, eget aliquam nisl nunc euismod
+              nunc.
+            </p>
+          </div>
+        </section>
+        <section className="h-screen flex items-center justify-center bg-gray-100">
+          <h2 className="text-3xl font-semibold">
+            Scroll Down for More Content
+          </h2>
         </section>
       </main>
     </>
