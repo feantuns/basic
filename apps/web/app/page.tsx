@@ -43,23 +43,24 @@ export default function Home() {
         >
           {/* Custom cursor */}
           <motion.div
-            className="absolute pointer-events-none z-50 flex items-center justify-center w-24 h-24 rounded-full bg-white text-center"
+            className="absolute pointer-events-none z-50 flex items-center justify-center w-30 h-30 rounded-full bg-white text-center"
             style={{
               x: isActive ? springX : "50%",
               y: isActive ? springY : "50%",
               top: isActive ? undefined : "50%",
               left: isActive ? undefined : "50%",
-              translateX: "-50%",
-              translateY: "-50%",
+              // translateX: "-50%",
+              // translateY: "-50%",
             }}
-            animate={{
-              scale: isActive ? 1 : 0.8,
-              opacity: isActive ? 1 : 0.7,
-            }}
+            // animate={{
+            //   scale: isActive ? 1 : 0.9,
+            //   opacity: isActive ? 1 : 0.7,
+            // }}
             transition={{ type: "spring", stiffness: 120, damping: 15 }}
           >
-            {/* Example of children inside custom cursor */}
-            <div className="text-xs font-semibold">Hover Zone</div>
+            <div className="text-sm font-semibold uppercase leading-[115%]">
+              Watch <br /> reel
+            </div>
           </motion.div>
           <video
             ref={videoRef}
