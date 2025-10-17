@@ -45,21 +45,18 @@ export default function Home() {
           <motion.div
             className="absolute pointer-events-none z-50 flex items-center justify-center w-30 h-30 rounded-full bg-white text-center"
             style={{
-              x: isActive ? springX : "50%",
-              y: isActive ? springY : "50%",
-              top: isActive ? undefined : "50%",
-              left: isActive ? undefined : "50%",
-              // translateX: "-50%",
-              // translateY: "-50%",
+              top: isActive ? springY : "50%",
+              left: isActive ? springX : "50%",
+              translateX: "-50%",
+              translateY: "-50%",
             }}
-            // animate={{
-            //   scale: isActive ? 1 : 0.9,
-            //   opacity: isActive ? 1 : 0.7,
-            // }}
             transition={{ type: "spring", stiffness: 120, damping: 15 }}
           >
-            <div className="text-sm font-semibold uppercase leading-[115%]">
+            <div className="relative text-sm font-semibold uppercase leading-[115%]">
               Watch <br /> reel
+              <span className="absolute top-[260%] left-[50%] translate-x-[-50%] text-sm font-semibold uppercase leading-[115%] text-white">
+                BASIC/DEPT® 2010-∞
+              </span>
             </div>
           </motion.div>
           <video
