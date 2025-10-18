@@ -7,8 +7,14 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isActive, setIsActive] = useState(false);
   // Smooth motion for x and y
-  const springX = useSpring(50, { stiffness: 150, damping: 15 });
-  const springY = useSpring(50, { stiffness: 150, damping: 15 });
+  const springX = useSpring(window.innerWidth / 2, {
+    stiffness: 150,
+    damping: 15,
+  });
+  const springY = useSpring(window.innerHeight / 2, {
+    stiffness: 150,
+    damping: 15,
+  });
 
   useEffect(() => {
     const handleMove = (e: any) => {
@@ -39,14 +45,16 @@ export default function Home() {
           onMouseLeave={() => {
             setIsActive(false);
             document.body.style.cursor = "auto";
+            springX.set(window.innerWidth / 2);
+            springY.set(window.innerHeight / 2);
           }}
         >
           {/* Custom cursor */}
           <motion.div
             className="absolute pointer-events-none z-50 flex items-center justify-center w-30 h-30 rounded-full bg-white text-center"
             style={{
-              top: isActive ? springY : "50%",
-              left: isActive ? springX : "50%",
+              y: springY,
+              x: springX,
               translateX: "-50%",
               translateY: "-50%",
             }}
