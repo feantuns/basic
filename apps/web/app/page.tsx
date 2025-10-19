@@ -6,7 +6,7 @@ import Loader from "./components/Loader";
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isActive, setIsActive] = useState(false);
-  // Smooth motion for x and y
+
   const springX = useSpring(50, {
     stiffness: 150,
     damping: 15,
