@@ -7,11 +7,11 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isActive, setIsActive] = useState(false);
   // Smooth motion for x and y
-  const springX = useSpring(window.innerWidth / 2, {
+  const springX = useSpring(50, {
     stiffness: 150,
     damping: 15,
   });
-  const springY = useSpring(window.innerHeight / 2, {
+  const springY = useSpring(50, {
     stiffness: 150,
     damping: 15,
   });
@@ -45,8 +45,6 @@ export default function Home() {
           onMouseLeave={() => {
             setIsActive(false);
             document.body.style.cursor = "auto";
-            springX.set(window.innerWidth / 2);
-            springY.set(window.innerHeight / 2);
           }}
         >
           {/* Custom cursor */}
