@@ -17,6 +17,11 @@ export default function Home() {
   });
 
   useEffect(() => {
+    springX.set(window?.innerWidth / 2);
+    springY.set(window?.innerHeight / 2);
+  }, []);
+
+  useEffect(() => {
     const handleMove = (e: any) => {
       springX.set(e.clientX);
       springY.set(e.clientY);
@@ -45,14 +50,16 @@ export default function Home() {
           onMouseLeave={() => {
             setIsActive(false);
             document.body.style.cursor = "auto";
+            springX.set(window?.innerWidth / 2);
+            springY.set(window?.innerHeight / 2);
           }}
         >
           {/* Custom cursor */}
           <motion.div
             className="absolute pointer-events-none z-50 flex items-center justify-center w-30 h-30 rounded-full bg-white text-center"
             style={{
-              y: springY,
-              x: springX,
+              top: springY,
+              left: springX,
               translateX: "-50%",
               translateY: "-50%",
             }}
