@@ -9,7 +9,7 @@ interface Props {
 export default function Loader({ onAnimationComplete }: Props) {
   return (
     <motion.div
-      className="fixed inset-0 flex items-center justify-center z-50"
+      className="fixed inset-0 flex items-center justify-center z-51"
       style={{ backgroundColor: "#f4f4f4ff" }}
       initial={{ y: 0 }}
       animate={{ y: "-100%" }}
