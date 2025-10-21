@@ -5,6 +5,7 @@ import Loader from "./components/Loader";
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
   const [isActive, setIsActive] = useState(false);
 
   const springX = useSpring(50, {
@@ -42,16 +43,20 @@ export default function Home() {
       <Loader onAnimationComplete={playVideo} />
       <main>
         <section
+          ref={heroRef}
           className="relative h-screen w-full overflow-hidden"
           onMouseEnter={() => {
             setIsActive(true);
             document.body.style.cursor = "none";
           }}
           onMouseLeave={() => {
-            setIsActive(false);
             document.body.style.cursor = "auto";
-            springX.set(window?.innerWidth / 2);
-            springY.set(window?.innerHeight / 2);
+            setTimeout(() => {
+              setIsActive(false);
+              springX.set(Number(heroRef.current?.clientWidth) / 2);
+              springY.set(Number(heroRef.current?.clientHeight) / 2);
+            });
+            console.log("leave");
           }}
         >
           {/* Custom cursor */}
