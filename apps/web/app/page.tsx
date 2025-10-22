@@ -32,6 +32,31 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", handleMove);
   }, [isActive]);
 
+  useEffect(() => {
+    const handleMouseMove = (e: any) => {
+      if (!heroRef.current) return;
+      const rect = heroRef.current.getBoundingClientRect();
+      const isInside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      // when you leave hero area
+      if (!isInside && isActive) {
+        setIsActive(false);
+        document.body.style.cursor = "auto";
+
+        // animate smoothly to the hero's center
+        springX.set(rect.width / 2);
+        springY.set(rect.height / 2);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [isActive, springX, springY]);
+
   const playVideo = () => {
     if (videoRef.current) {
       videoRef.current.play();
@@ -51,12 +76,9 @@ export default function Home() {
           }}
           onMouseLeave={() => {
             document.body.style.cursor = "auto";
-            setTimeout(() => {
-              setIsActive(false);
-              springX.set(Number(heroRef.current?.clientWidth) / 2);
-              springY.set(Number(heroRef.current?.clientHeight) / 2);
-            });
-            console.log("leave");
+            setIsActive(false);
+            springX.set(Number(heroRef.current?.clientWidth) / 2);
+            springY.set(Number(heroRef.current?.clientHeight) / 2);
           }}
         >
           {/* Custom cursor */}
