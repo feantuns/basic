@@ -24,6 +24,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleMove = (e: any) => {
+      console.log(e.clientX, e.clientY);
       springX.set(e.clientX);
       springY.set(e.clientY);
     };
@@ -85,8 +86,8 @@ export default function Home() {
           <motion.div
             className="absolute pointer-events-none z-50 flex items-center justify-center w-30 h-30 rounded-full bg-white text-center"
             style={{
-              top: springY,
-              left: springX,
+              y: springY,
+              x: springX,
               translateX: "-50%",
               translateY: "-50%",
             }}
