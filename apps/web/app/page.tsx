@@ -3,6 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useSpring } from "framer-motion";
 import Loader from "./components/Loader";
 
+function getRelativePosition(event: any, container: any) {
+  const rect = container.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  return { x, y };
+}
+
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const heroRef = useRef<HTMLElement>(null);
@@ -24,9 +31,9 @@ export default function Home() {
 
   useEffect(() => {
     const handleMove = (e: any) => {
-      console.log(e.clientX, e.clientY);
-      springX.set(e.clientX);
-      springY.set(e.clientY);
+      const { x, y } = getRelativePosition(e, heroRef.current);
+      springX.set(x);
+      springY.set(y);
     };
     if (isActive) window.addEventListener("mousemove", handleMove);
     else window.removeEventListener("mousemove", handleMove);
