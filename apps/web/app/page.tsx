@@ -16,12 +16,14 @@ export default function Home() {
   const [isActive, setIsActive] = useState(false);
 
   const springX = useSpring(50, {
-    stiffness: 150,
-    damping: 15,
+    stiffness: 800,
+    damping: 100,
+    bounce: 0,
   });
   const springY = useSpring(50, {
-    stiffness: 150,
-    damping: 15,
+    stiffness: 800,
+    damping: 100,
+    bounce: 0,
   });
 
   useEffect(() => {
@@ -98,9 +100,14 @@ export default function Home() {
               translateX: "-50%",
               translateY: "-50%",
             }}
-            transition={{ type: "spring", stiffness: 120, damping: 15 }}
+            transition={{
+              type: "spring",
+              stiffness: 800,
+              damping: 100,
+              bounce: 0,
+            }}
           >
-            <div className="relative text-sm font-semibold uppercase leading-[115%]">
+            <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
               Watch <br /> reel
               <span className="absolute top-[260%] left-[50%] translate-x-[-50%] text-sm font-semibold uppercase leading-[115%] text-white">
                 BASIC/DEPT® 2010-∞
