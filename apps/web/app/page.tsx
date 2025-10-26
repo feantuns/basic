@@ -12,8 +12,10 @@ function getRelativePosition(event: any, container: any) {
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const realVideoRef = useRef<HTMLVideoElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const [isActive, setIsActive] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const springX = useSpring(50, {
     stiffness: 800,
@@ -93,12 +95,13 @@ export default function Home() {
         >
           {/* Custom cursor */}
           <motion.div
-            className="absolute pointer-events-none z-50 flex items-center justify-center w-30 h-30 rounded-full bg-white text-center"
+            className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-white text-center"
             style={{
               y: springY,
               x: springX,
               translateX: "-50%",
               translateY: "-50%",
+              display: isPlaying ? "none" : "flex",
             }}
             transition={{
               type: "spring",
@@ -122,8 +125,34 @@ export default function Home() {
             playsInline
             preload="none"
             className="absolute top-0 left-0 w-full h-full object-cover"
+            style={{ display: isPlaying ? "none" : "block" }}
+            onClick={() => {
+              setIsPlaying(true);
+              if (realVideoRef.current) {
+                realVideoRef.current.currentTime = 0;
+                realVideoRef.current.play();
+                realVideoRef.current.volume = 1;
+              }
+            }}
           >
             <source src="/hero_video.mp4" type="video/mp4" />
+          </video>
+          <video
+            ref={realVideoRef}
+            autoPlay
+            loop
+            playsInline
+            preload="none"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            style={{ display: isPlaying ? "block" : "none" }}
+            onClick={() => {
+              setIsPlaying(false);
+              if (realVideoRef.current) {
+                realVideoRef.current.pause();
+              }
+            }}
+          >
+            <source src="/hero_video_sound.mp4" type="video/mp4" />
           </video>
         </section>
         <section>
