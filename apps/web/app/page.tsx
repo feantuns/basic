@@ -83,14 +83,18 @@ export default function Home() {
           ref={heroRef}
           className="relative h-screen w-full overflow-hidden"
           onMouseEnter={() => {
-            setIsActive(true);
-            document.body.style.cursor = "none";
+            if (!isPlaying) {
+              setIsActive(true);
+              document.body.style.cursor = "none";
+            }
           }}
           onMouseLeave={() => {
-            document.body.style.cursor = "auto";
-            setIsActive(false);
-            springX.set(Number(heroRef.current?.clientWidth) / 2);
-            springY.set(Number(heroRef.current?.clientHeight) / 2);
+            if (!isPlaying) {
+              document.body.style.cursor = "auto";
+              setIsActive(false);
+              springX.set(Number(heroRef.current?.clientWidth) / 2);
+              springY.set(Number(heroRef.current?.clientHeight) / 2);
+            }
           }}
         >
           {/* Custom cursor */}
@@ -132,6 +136,7 @@ export default function Home() {
                 realVideoRef.current.currentTime = 0;
                 realVideoRef.current.play();
                 realVideoRef.current.volume = 1;
+                document.body.style.cursor = "auto";
               }
             }}
           >
@@ -149,6 +154,7 @@ export default function Home() {
               setIsPlaying(false);
               if (realVideoRef.current) {
                 realVideoRef.current.pause();
+                document.body.style.cursor = "none";
               }
             }}
           >
