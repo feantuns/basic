@@ -40,6 +40,7 @@ export default function Hero() {
   useEffect(() => {
     const handleMouseMove = (e: any) => {
       if (!heroRef.current) return;
+      console.log(e);
       const rect = heroRef.current.getBoundingClientRect();
       const isInside =
         e.clientX >= rect.left &&
