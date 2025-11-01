@@ -6,7 +6,7 @@ import { getRelativePosition } from "../utils";
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const realVideoRef = useRef<HTMLVideoElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -40,7 +40,6 @@ export default function Hero() {
   useEffect(() => {
     const handleMouseMove = (e: any) => {
       if (!heroRef.current) return;
-      console.log(e);
       const rect = heroRef.current.getBoundingClientRect();
       const isInside =
         e.clientX >= rect.left &&
@@ -64,48 +63,50 @@ export default function Hero() {
   }, [isActive, springX, springY]);
 
   return (
-    <section
-      ref={heroRef}
-      className="relative h-screen w-full overflow-hidden"
-      onMouseEnter={() => {
-        if (!isPlaying) {
-          setIsActive(true);
-          document.body.style.cursor = "none";
-        }
-      }}
-      onMouseLeave={() => {
-        if (!isPlaying) {
-          document.body.style.cursor = "auto";
-          setIsActive(false);
-          springX.set(Number(heroRef.current?.clientWidth) / 2);
-          springY.set(Number(heroRef.current?.clientHeight) / 2);
-        }
-      }}
-    >
-      {/* Custom cursor */}
-      <motion.div
-        className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-white text-center"
-        style={{
-          y: springY,
-          x: springX,
-          translateX: "-50%",
-          translateY: "-50%",
-          display: isPlaying ? "none" : "flex",
+    <section className="relative h-screen w-full overflow-hidden pt-[80px]">
+      <div
+        ref={heroRef}
+        className="relative w-full h-full"
+        onMouseEnter={() => {
+          if (!isPlaying) {
+            setIsActive(true);
+            document.body.style.cursor = "none";
+          }
         }}
-        transition={{
-          type: "spring",
-          stiffness: 800,
-          damping: 100,
-          bounce: 0,
+        onMouseLeave={() => {
+          if (!isPlaying) {
+            document.body.style.cursor = "auto";
+            setIsActive(false);
+            springX.set(Number(heroRef.current?.clientWidth) / 2);
+            springY.set(Number(heroRef.current?.clientHeight) / 2);
+          }
         }}
       >
-        <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
-          Watch <br /> reel
-          <span className="absolute top-[260%] left-[50%] translate-x-[-50%] text-sm font-semibold uppercase leading-[115%] text-white">
-            BASIC/DEPT® 2010-∞
-          </span>
-        </div>
-      </motion.div>
+        {/* Custom cursor */}
+        <motion.div
+          className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-white text-center"
+          style={{
+            y: springY,
+            x: springX,
+            translateX: "-50%",
+            translateY: "-50%",
+            display: isPlaying ? "none" : "flex",
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 800,
+            damping: 100,
+            bounce: 0,
+          }}
+        >
+          <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
+            Watch <br /> reel
+            <span className="absolute top-[260%] left-[50%] translate-x-[-50%] text-sm font-semibold uppercase leading-[115%] text-white">
+              BASIC/DEPT® 2010-∞
+            </span>
+          </div>
+        </motion.div>
+      </div>
       <video
         ref={videoRef}
         autoPlay
