@@ -66,7 +66,7 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden pt-[80px]">
       <div
         ref={heroRef}
-        className="relative w-full h-full"
+        className="w-full h-full"
         onMouseEnter={() => {
           if (!isPlaying) {
             setIsActive(true);
@@ -106,46 +106,46 @@ export default function Hero() {
             </span>
           </div>
         </motion.div>
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ display: isPlaying ? "none" : "block" }}
+          onClick={() => {
+            setIsPlaying(true);
+            if (realVideoRef.current) {
+              realVideoRef.current.currentTime = 0;
+              realVideoRef.current.play();
+              realVideoRef.current.volume = 1;
+              document.body.style.cursor = "auto";
+            }
+          }}
+        >
+          <source src="/hero_video.mp4" type="video/mp4" />
+        </video>
+        <video
+          ref={realVideoRef}
+          autoPlay
+          loop
+          playsInline
+          preload="none"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          style={{ display: isPlaying ? "block" : "none" }}
+          onClick={() => {
+            setIsPlaying(false);
+            if (realVideoRef.current) {
+              realVideoRef.current.pause();
+              document.body.style.cursor = "none";
+            }
+          }}
+        >
+          <source src="/hero_video_sound.mp4" type="video/mp4" />
+        </video>
       </div>
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="none"
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        style={{ display: isPlaying ? "none" : "block" }}
-        onClick={() => {
-          setIsPlaying(true);
-          if (realVideoRef.current) {
-            realVideoRef.current.currentTime = 0;
-            realVideoRef.current.play();
-            realVideoRef.current.volume = 1;
-            document.body.style.cursor = "auto";
-          }
-        }}
-      >
-        <source src="/hero_video.mp4" type="video/mp4" />
-      </video>
-      <video
-        ref={realVideoRef}
-        autoPlay
-        loop
-        playsInline
-        preload="none"
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        style={{ display: isPlaying ? "block" : "none" }}
-        onClick={() => {
-          setIsPlaying(false);
-          if (realVideoRef.current) {
-            realVideoRef.current.pause();
-            document.body.style.cursor = "none";
-          }
-        }}
-      >
-        <source src="/hero_video_sound.mp4" type="video/mp4" />
-      </video>
     </section>
   );
 }
