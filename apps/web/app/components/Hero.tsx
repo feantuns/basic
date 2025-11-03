@@ -63,7 +63,7 @@ export default function Hero() {
   }, [isActive, springX, springY]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden pt-[80px]">
+    <section className="relative h-screen w-full pt-[104px]">
       <div
         ref={heroRef}
         className="w-full h-full"
