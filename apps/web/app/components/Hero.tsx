@@ -23,7 +23,7 @@ export default function Hero() {
 
   useEffect(() => {
     springX.set(window?.innerWidth / 2);
-    springY.set(window?.innerHeight / 2);
+    springY.set(window?.innerHeight / 2 - 104);
   }, []);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function Hero() {
             document.body.style.cursor = "auto";
             setIsActive(false);
             springX.set(Number(heroRef.current?.clientWidth) / 2);
-            springY.set(Number(heroRef.current?.clientHeight) / 2);
+            springY.set(Number(heroRef.current?.clientHeight) / 2 - 104);
           }
         }}
       >
