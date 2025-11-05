@@ -54,7 +54,7 @@ export default function Hero() {
 
         // animate smoothly to the hero's center
         springX.set(rect.width / 2);
-        springY.set(rect.height / 2);
+        springY.set(rect.height / 2 - 55);
       }
     };
 
