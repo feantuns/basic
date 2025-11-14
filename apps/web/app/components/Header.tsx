@@ -1,3 +1,4 @@
+import { AnimatedLink } from "./AnimatedLink";
 import HeaderLogo from "./HeaderLogo";
 
 export default function Header() {
@@ -8,22 +9,22 @@ export default function Header() {
         <nav>
           <ul className="flex gap-16 uppercase text-white text-sm">
             <li>
-              <a href="/work">Work</a>
+              <AnimatedLink href="/work">Work</AnimatedLink>
             </li>
             <li>
-              <a href="/about">About</a>
+              <AnimatedLink href="/about">About</AnimatedLink>
             </li>
             <li>
-              <a href="/news">News</a>
+              <AnimatedLink href="/news">News</AnimatedLink>
             </li>
             <li>
-              <a href="/thinking">Thinking</a>
+              <AnimatedLink href="/thinking">Thinking</AnimatedLink>
             </li>
             <li>
-              <a href="/careers">Careers</a>
+              <AnimatedLink href="/careers">Careers</AnimatedLink>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <AnimatedLink href="/contact">Contact</AnimatedLink>
             </li>
           </ul>
         </nav>
