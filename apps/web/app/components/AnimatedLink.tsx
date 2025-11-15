@@ -1,5 +1,37 @@
 import { motion } from "framer-motion";
 
+const transitionSettings = {
+  type: "tween",
+  ease: "easeOut",
+  duration: 0.2,
+};
+
+const underlineVariants = {
+  // 🏠 When resting (not hovered) - State for SHRINKING Right-to-Left
+  rest: {
+    scaleX: 0,
+    originX: 1, // Set target origin to the right (1)
+    transition: {
+      // Apply the standard transition to scaleX
+      scaleX: transitionSettings,
+      // Override the transition for originX: make it instant (duration: 0)
+      originX: { duration: 0 },
+    },
+  },
+  // 🖱️ When hovering - State for GROWING Left-to-Right
+  hover: {
+    scaleX: 1,
+    originX: 0, // Set target origin to the left (0)
+    transition: {
+      // Ensure scaleX has a smooth transition
+      scaleX: transitionSettings,
+      // Override the transition for originX: make it instant
+      // This ensures it snaps to the left (0) before scaling out
+      originX: { duration: 0 },
+    },
+  },
+};
+
 export const AnimatedLink = ({ children, href }: any) => {
   return (
     <motion.a
@@ -7,32 +39,22 @@ export const AnimatedLink = ({ children, href }: any) => {
       // Use whileHover on the wrapper to trigger the animation
       whileHover="hover"
       initial="rest"
-      className="relative block" // Your link styling and position: relative
+      className="relative inline-block font-extralight" // Your link styling and position: relative
       // Optional: Add a transition to make the whole component scale slightly too
     >
       {children}
 
       {/* The Underline Element */}
       <motion.span
-        variants={{
-          rest: { scaleX: 0, originX: 1 }, // Initial state: width is 0
-          hover: { scaleX: 1, originX: 0 }, // Hover state: width is 1 (full width)
-        }}
-        transition={{
-          type: "spring", // Use a spring or tween for smooth movement
-          stiffness: 400,
-          damping: 30,
-          duration: 0.25,
-        }}
+        variants={underlineVariants as any}
         // CSS for the underline
         style={{
           position: "absolute",
           bottom: -2, // Adjust position as needed
           left: 0,
           right: 0,
-          height: 2,
+          height: 1,
           backgroundColor: "currentColor", // Use link color
-          transformOrigin: "left", // Crucial for left-to-right growth
         }}
       />
     </motion.a>
