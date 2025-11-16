@@ -1,60 +1,52 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const transitionSettings = {
   type: "tween",
-  ease: "easeOut",
-  duration: 0.2,
-};
-
-const underlineVariants = {
-  // 🏠 When resting (not hovered) - State for SHRINKING Right-to-Left
-  rest: {
-    scaleX: 0,
-    originX: 1, // Set target origin to the right (1)
-    transition: {
-      // Apply the standard transition to scaleX
-      scaleX: transitionSettings,
-      // Override the transition for originX: make it instant (duration: 0)
-      originX: { duration: 0 },
-    },
-  },
-  // 🖱️ When hovering - State for GROWING Left-to-Right
-  hover: {
-    scaleX: 1,
-    originX: 0, // Set target origin to the left (0)
-    transition: {
-      // Ensure scaleX has a smooth transition
-      scaleX: transitionSettings,
-      // Override the transition for originX: make it instant
-      // This ensures it snaps to the left (0) before scaling out
-      originX: { duration: 0 },
-    },
-  },
+  ease: "easeInOut",
+  duration: 0.18,
 };
 
 export const AnimatedLink = ({ children, href }: any) => {
+  const [originX, setOriginX] = useState<0 | 1>(1); // 0 => left, 1 => right
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHoverStart = () => {
+    // snap origin to left immediately, then animate scale
+    setOriginX(0);
+    // ensure origin is flushed to DOM before we start the scale animation
+    requestAnimationFrame(() => setIsHovered(true));
+  };
+
+  const handleHoverEnd = () => {
+    // snap origin to right first, then animate scale down after the frame
+    setOriginX(1);
+    requestAnimationFrame(() => setIsHovered(false));
+  };
+
   return (
     <motion.a
       href={href}
-      // Use whileHover on the wrapper to trigger the animation
-      whileHover="hover"
-      initial="rest"
-      className="relative inline-block font-extralight" // Your link styling and position: relative
-      // Optional: Add a transition to make the whole component scale slightly too
+      onHoverStart={handleHoverStart}
+      onHoverEnd={handleHoverEnd}
+      initial={false}
+      className="relative inline-block text-sm font-extralight"
     >
       {children}
 
-      {/* The Underline Element */}
       <motion.span
-        variants={underlineVariants as any}
-        // CSS for the underline
+        // only animate the scale; originX is set/changed immediately via state
+        animate={{ scaleX: isHovered ? 1 : 0 }}
+        transition={{ scaleX: transitionSettings } as any}
+        // set originX directly as prop (no transition) so it snaps
         style={{
+          transformOrigin: `${originX === 0 ? "left" : "right"} center`,
           position: "absolute",
-          bottom: -2, // Adjust position as needed
+          bottom: 0,
           left: 0,
           right: 0,
           height: 1,
-          backgroundColor: "currentColor", // Use link color
+          backgroundColor: "currentColor",
         }}
       />
     </motion.a>

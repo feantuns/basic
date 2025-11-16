@@ -106,7 +106,7 @@ export default function Hero() {
             </span>
           </div>
         </motion.div>
-        {/* <video
+        <video
           ref={videoRef}
           autoPlay
           loop
@@ -129,7 +129,6 @@ export default function Hero() {
         </video>
         <video
           ref={realVideoRef}
-          autoPlay
           loop
           playsInline
           preload="none"
@@ -144,7 +143,7 @@ export default function Hero() {
           }}
         >
           <source src="/hero_video_sound.mp4" type="video/mp4" />
-        </video> */}
+        </video>
       </div>
     </section>
   );
