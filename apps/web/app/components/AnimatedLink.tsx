@@ -30,7 +30,7 @@ export const AnimatedLink = ({ children, href }: any) => {
       onHoverStart={handleHoverStart}
       onHoverEnd={handleHoverEnd}
       initial={false}
-      className="relative inline-block text-sm font-extralight"
+      className="relative inline-block text-sm font-light"
     >
       {children}
 
@@ -42,7 +42,7 @@ export const AnimatedLink = ({ children, href }: any) => {
         style={{
           transformOrigin: `${originX === 0 ? "left" : "right"} center`,
           position: "absolute",
-          bottom: 0,
+          bottom: 2,
           left: 0,
           right: 0,
           height: 1,

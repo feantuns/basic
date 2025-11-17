@@ -6,7 +6,7 @@ export default function Header() {
     <header className="fixed z-51 top-0 w-screen">
       <div className="px-20 py-13 flex items-center justify-between">
         <HeaderLogo />
-        <nav>
+        <nav className="mr-[9rem]">
           <ul className="flex gap-16 uppercase text-white text-sm">
             <li>
               <AnimatedLink href="/work">Work</AnimatedLink>
