@@ -9,22 +9,34 @@ export default function Header() {
         <nav className="mr-[9rem]">
           <ul className="flex gap-16 uppercase text-white text-sm">
             <li>
-              <AnimatedLink href="/work">Work</AnimatedLink>
+              <AnimatedLink href="https://www.basicagency.com/services">
+                Work
+              </AnimatedLink>
             </li>
             <li>
-              <AnimatedLink href="/about">About</AnimatedLink>
+              <AnimatedLink href="https://www.basicagency.com/about">
+                About
+              </AnimatedLink>
             </li>
             <li>
-              <AnimatedLink href="/news">News</AnimatedLink>
+              <AnimatedLink href="https://www.basicagency.com/blog">
+                News
+              </AnimatedLink>
             </li>
             <li>
-              <AnimatedLink href="/thinking">Thinking</AnimatedLink>
+              <AnimatedLink href="https://www.basicagency.com/thinking">
+                Thinking
+              </AnimatedLink>
             </li>
             <li>
-              <AnimatedLink href="/careers">Careers</AnimatedLink>
+              <AnimatedLink href="https://www.basicagency.com/careers">
+                Careers
+              </AnimatedLink>
             </li>
             <li>
-              <AnimatedLink href="/contact">Contact</AnimatedLink>
+              <AnimatedLink href="https://www.basicagency.com/contact">
+                Contact
+              </AnimatedLink>
             </li>
           </ul>
         </nav>
