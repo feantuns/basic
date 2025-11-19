@@ -1,1 +1,12 @@
 @import "tailwindcss";
+::selection {
+  /* Use Tailwind colors for consistency, e.g., 'blue-400' and 'gray-900' */
+  background-color: #212121; /* bg-blue-500 equivalent */
+  color: #ffffff; /* text-gray-800 equivalent */
+}
+
+/* Optional: Add a fallback for older browsers (e.g., Firefox) */
+::-moz-selection {
+  background-color: #212121;
+  color: #ffffff;
+}
