@@ -1,5 +1,6 @@
 import { AnimatedLink } from "./AnimatedLink";
 import HeaderLogo from "./HeaderLogo";
+import { MenuButton } from "./MenuButton";
 
 export default function Header() {
   return (
@@ -40,24 +41,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <button
-          role="button"
-          aria-label="Open menu"
-          title="Menu"
-          className="w-[22px] h-[26px] cursor-pointer text-white"
-        >
-          <figure>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 21 5"
-              fill="currentColor"
-            >
-              <circle cx="2.5" cy="2.5" r="2.5"></circle>
-              <circle cx="10.5" cy="2.5" r="2.5"></circle>
-              <circle cx="18.5" cy="2.5" r="2.5"></circle>
-            </svg>
-          </figure>
-        </button>
+        <MenuButton />
       </div>
     </header>
   );
