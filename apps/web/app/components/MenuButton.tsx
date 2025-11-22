@@ -23,12 +23,12 @@ export const MenuButton = () => {
     rest: i => ({
       // i is the custom prop 'custom' passed from the map/array below
       cx: i === 0 ? 2.5 : i === 2 ? 18.5 : 10.5, // Return to default cx
-      transition: { duration: 0.2 },
+      transition: { duration: 0.05 },
     }),
     hover: i => ({
       // Move the first circle left and the third circle right to increase spacing
       cx: i === 0 ? 0.5 : i === 2 ? 20.5 : 10.5, // New cx values (e.g., 1 unit increase on each side)
-      transition: { duration: 0.2 },
+      transition: { duration: 0.05 },
     }),
   };
 
@@ -51,9 +51,10 @@ export const MenuButton = () => {
       <figure>
         <motion.svg
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 21 5"
+          viewBox="0 0 25 5"
           fill="currentColor"
-          variants={svgVariants} // Apply container variants
+          variants={svgVariants}
+          style={{ overflow: "visible" }}
         >
           {circlesData.map((circle, index) => (
             <motion.circle
