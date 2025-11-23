@@ -5,15 +5,10 @@ export const MenuButton = () => {
   // This will manage the transition for all child <circle> elements.
   const svgVariants = {
     rest: {
-      transition: {
-        staggerChildren: 0.05, // Optional: Stagger the start of each circle's animation
-      },
+      transition: {},
     },
     hover: {
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1, // Animate circles back in reverse order
-      },
+      transition: {},
     },
   };
 
@@ -22,13 +17,15 @@ export const MenuButton = () => {
   const circleVariants = {
     rest: i => ({
       // i is the custom prop 'custom' passed from the map/array below
-      cx: i === 0 ? 2.5 : i === 2 ? 18.5 : 10.5, // Return to default cx
-      transition: { duration: 0.05 },
+      cx: i === 0 ? 1.0 : i === 2 ? 20.0 : 10.5,
+      r: 3.0,
+      transition: { duration: 0.1 },
     }),
     hover: i => ({
       // Move the first circle left and the third circle right to increase spacing
-      cx: i === 0 ? 0.5 : i === 2 ? 20.5 : 10.5, // New cx values (e.g., 1 unit increase on each side)
-      transition: { duration: 0.05 },
+      cx: i === 0 ? -1 : i === 2 ? 22 : 10.5,
+      r: 3.0,
+      transition: { duration: 0.1 },
     }),
   };
 
