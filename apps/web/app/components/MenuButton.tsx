@@ -19,13 +19,13 @@ export const MenuButton = () => {
       // i is the custom prop 'custom' passed from the map/array below
       cx: i === 0 ? 1.0 : i === 2 ? 20.0 : 10.5,
       r: 3.0,
-      transition: { duration: 0.1 },
+      transition: { duration: 0.08 },
     }),
     hover: i => ({
       // Move the first circle left and the third circle right to increase spacing
       cx: i === 0 ? -1 : i === 2 ? 22 : 10.5,
       r: 3.0,
-      transition: { duration: 0.1 },
+      transition: { duration: 0.08 },
     }),
   };
 
