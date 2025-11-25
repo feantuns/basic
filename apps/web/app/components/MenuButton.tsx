@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 
-export const MenuButton = () => {
+interface MenuButtonProps {
+  handleClick?: () => void;
+}
+
+export const MenuButton = ({ handleClick }: MenuButtonProps) => {
   // Define the animation states (variants) for the *container* SVG
   // This will manage the transition for all child <circle> elements.
   const svgVariants = {
@@ -44,6 +48,7 @@ export const MenuButton = () => {
       initial="rest" // Set initial state
       whileHover="hover" // Animate to 'hover' state on hover
       animate="rest" // Animate back to 'rest' state on hover out
+      onClick={handleClick}
     >
       <figure>
         <motion.svg

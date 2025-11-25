@@ -41,7 +41,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <MenuButton />
+        <MenuButton handleClick={() => console.log("open menu")} />
       </div>
     </header>
   );
