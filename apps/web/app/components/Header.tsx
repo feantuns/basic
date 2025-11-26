@@ -1,8 +1,23 @@
+"use-client";
+import { useState, useEffect } from "react";
 import { AnimatedLink } from "./AnimatedLink";
 import HeaderLogo from "./HeaderLogo";
 import { MenuButton } from "./MenuButton";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isMenuOpen]);
+
   return (
     <header className="fixed z-51 top-0 w-screen">
       <div className="px-20 py-13 flex items-center justify-between">
