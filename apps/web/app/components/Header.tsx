@@ -58,7 +58,7 @@ export default function Header() {
               </li>
             </ul>
           </nav>
-          <MenuButton handleClick={() => setIsMenuOpen(true)} />
+          <MenuButton toggleMenu={toggleMenu} isOpen={isMenuOpen} />
         </div>
       </header>
 
