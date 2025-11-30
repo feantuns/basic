@@ -38,7 +38,7 @@ export const MenuButton = ({ toggleMenu, isOpen }: MenuButtonProps) => {
   return (
     <button
       onClick={toggleMenu}
-      className="z-[60] flex items-center justify-center w-12 h-12 cursor-pointer text-white mix-blend-difference focus:outline-none"
+      className="flex items-center justify-center w-12 h-12 cursor-pointer text-white mix-blend-difference focus:outline-none"
       aria-label={isOpen ? "Close menu" : "Open menu"}
     >
       <AnimatePresence mode="wait">
@@ -65,7 +65,7 @@ export const MenuButton = ({ toggleMenu, isOpen }: MenuButtonProps) => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 25 5"
               fill="currentColor"
-              className="w-8 h-8"
+              className="w-6 h-6"
               variants={svgVariants}
               initial="rest"
               whileHover="hover"
