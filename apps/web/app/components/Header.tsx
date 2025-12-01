@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed z-51 top-0 w-screen">
-        <div className="px-20 py-13 flex items-center justify-between">
+        <div className="px-20 pt-10 pb-13 flex items-center justify-between">
           <HeaderLogo />
           <nav className="mr-[9rem]">
             <ul className="flex gap-16 uppercase text-white text-sm">
