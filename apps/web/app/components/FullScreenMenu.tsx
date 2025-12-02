@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { MenuButton } from "./MenuButton";
 
-export const FullScreenMenu = ({ isOpen }) => {
+export const FullScreenMenu = ({ isOpen, toggleMenu }) => {
   const menuVariants: any = {
     closed: {
       x: "100%",
@@ -52,10 +53,14 @@ export const FullScreenMenu = ({ isOpen }) => {
           initial="closed"
           animate="open"
           exit="closed"
-          className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-50 flex flex-col justify-between h-screen w-screen px-5 py-8 md:px-20 md:py-12"
+          className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-52 flex flex-col justify-between h-screen w-screen px-5 py-8 md:px-20 md:py-12"
         >
           {/* Menu Header Area (Empty for layout balance, logo sits above in Header) */}
-          <div className="h-20"></div>
+
+          <div className="flex items-center justify-between">
+            <div></div>
+            <MenuButton toggleMenu={toggleMenu} isOpen={isOpen} />
+          </div>
 
           {/* Main Navigation Links */}
           <div className="flex flex-col md:flex-row w-full h-full">

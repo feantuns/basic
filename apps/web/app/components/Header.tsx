@@ -63,7 +63,7 @@ export default function Header() {
       </header>
 
       {/* The Full Screen Menu Overlay */}
-      <FullScreenMenu isOpen={isMenuOpen} />
+      <FullScreenMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
     </>
   );
 }
