@@ -21,43 +21,49 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed z-51 top-0 w-screen">
+      <header className="fixed z-55 top-0 w-screen">
         <div className="px-20 pt-10 pb-13 flex items-center justify-between">
-          <HeaderLogo />
-          <nav className="mr-[9rem]">
-            <ul className="flex gap-16 uppercase text-white text-sm">
-              <li>
-                <AnimatedLink href="https://www.basicagency.com/services">
-                  Work
-                </AnimatedLink>
-              </li>
-              <li>
-                <AnimatedLink href="https://www.basicagency.com/about">
-                  About
-                </AnimatedLink>
-              </li>
-              <li>
-                <AnimatedLink href="https://www.basicagency.com/blog">
-                  News
-                </AnimatedLink>
-              </li>
-              <li>
-                <AnimatedLink href="https://www.basicagency.com/thinking">
-                  Thinking
-                </AnimatedLink>
-              </li>
-              <li>
-                <AnimatedLink href="https://www.basicagency.com/careers">
-                  Careers
-                </AnimatedLink>
-              </li>
-              <li>
-                <AnimatedLink href="https://www.basicagency.com/contact">
-                  Contact
-                </AnimatedLink>
-              </li>
-            </ul>
-          </nav>
+          <div
+            className={`grow-1 flex items-center justify-between transition-opacity duration-300 ${
+              isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+          >
+            <HeaderLogo />
+            <nav className="mr-[9rem]">
+              <ul className="flex gap-16 uppercase text-white text-sm">
+                <li>
+                  <AnimatedLink href="https://www.basicagency.com/services">
+                    Work
+                  </AnimatedLink>
+                </li>
+                <li>
+                  <AnimatedLink href="https://www.basicagency.com/about">
+                    About
+                  </AnimatedLink>
+                </li>
+                <li>
+                  <AnimatedLink href="https://www.basicagency.com/blog">
+                    News
+                  </AnimatedLink>
+                </li>
+                <li>
+                  <AnimatedLink href="https://www.basicagency.com/thinking">
+                    Thinking
+                  </AnimatedLink>
+                </li>
+                <li>
+                  <AnimatedLink href="https://www.basicagency.com/careers">
+                    Careers
+                  </AnimatedLink>
+                </li>
+                <li>
+                  <AnimatedLink href="https://www.basicagency.com/contact">
+                    Contact
+                  </AnimatedLink>
+                </li>
+              </ul>
+            </nav>
+          </div>
           <MenuButton toggleMenu={toggleMenu} isOpen={isMenuOpen} />
         </div>
       </header>

@@ -89,13 +89,6 @@ export const FullScreenMenu = ({ isOpen, toggleMenu }) => {
             exit="closed"
             className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-53 flex flex-col justify-between h-screen w-screen px-5 py-8 md:px-20 md:py-12"
           >
-            {/* Menu Header Area (Empty for layout balance, logo sits above in Header) */}
-
-            <div className="flex items-center justify-between">
-              <div></div>
-              <MenuButton toggleMenu={toggleMenu} isOpen={isOpen} />
-            </div>
-
             {/* Main Navigation Links */}
             <div className="flex flex-col md:flex-row w-full h-full">
               <div className="flex-1 flex flex-col justify-center">
