@@ -8,14 +8,14 @@ export const FullScreenMenu = ({ isOpen, toggleMenu }) => {
     closed: {
       opacity: 0,
       transition: {
-        duration: 0.8, // Match the slide duration for sync
+        duration: 0.3, // Match the slide duration for sync
         ease: [0.76, 0, 0.24, 1],
       },
     },
     open: {
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.3,
         ease: [0.76, 0, 0.24, 1],
       },
     },
@@ -25,14 +25,14 @@ export const FullScreenMenu = ({ isOpen, toggleMenu }) => {
     closed: {
       x: "100%",
       transition: {
-        duration: 0.8,
+        duration: 1,
         ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
       },
     },
     open: {
       x: "0%",
       transition: {
-        duration: 0.8,
+        duration: 1,
         ease: [0.76, 0, 0.24, 1],
       },
     },
