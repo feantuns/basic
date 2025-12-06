@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { MenuButton } from "./MenuButton";
 
-export const FullScreenMenu = ({ isOpen, toggleMenu }) => {
+export const FullScreenMenu = ({ isOpen }) => {
   // Animation for the dark background fade
   const backdropVariants: any = {
     closed: {
