@@ -21,8 +21,11 @@ export const FullScreenMenu = ({ isOpen }) => {
   };
 
   const menuVariants: any = {
-    closed: {
+    initial: {
       x: "100%",
+    },
+    closed: {
+      opacity: 1,
       transition: {
         duration: 1,
         ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
