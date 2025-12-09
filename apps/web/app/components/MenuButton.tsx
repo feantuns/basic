@@ -50,7 +50,14 @@ export const MenuButton = ({ toggleMenu, isOpen }: MenuButtonProps) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <X size={32} />
+            <X
+              size={40}
+              style={{
+                border: "1px solid white",
+                borderRadius: "50%",
+                padding: "8px 4px",
+              }}
+            />
           </motion.div>
         ) : (
           <motion.div
