@@ -26,17 +26,19 @@ export const FullScreenMenu = ({ isOpen }) => {
     },
     closed: {
       opacity: 0,
-      // x: "100%",
       transition: {
         duration: 0.3,
         ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
+      },
+      transitionEnd: {
+        x: "100%",
       },
     },
     open: {
       x: "0%",
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.8,
         ease: [0.76, 0, 0.24, 1],
       },
     },
