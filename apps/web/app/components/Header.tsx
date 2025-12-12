@@ -29,7 +29,7 @@ export default function Header() {
             }`}
           >
             <HeaderLogo />
-            <nav className="mr-[9rem]">
+            <nav>
               <ul className="flex gap-16 uppercase text-white text-sm">
                 <li>
                   <AnimatedLink href="https://www.basicagency.com/services">
@@ -63,6 +63,7 @@ export default function Header() {
                 </li>
               </ul>
             </nav>
+            <div />
           </div>
           <MenuButton toggleMenu={toggleMenu} isOpen={isMenuOpen} />
         </div>
