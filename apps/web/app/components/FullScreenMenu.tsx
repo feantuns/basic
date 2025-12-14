@@ -62,7 +62,23 @@ export const FullScreenMenu = ({ isOpen }) => {
             exit="closed"
             className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-53 flex flex-col justify-between h-screen w-screen px-5 py-8 md:px-20 md:py-12"
           >
-            <div className="flex flex-col md:flex-row w-full h-full"></div>
+            <div className="flex flex-col w-full h-full">
+              <div className="flex flex-row leading-[110%] text-pink-100 uppercase text-sm gap-12 items-start">
+                <div className="flex flex-row gap-8 items-start">
+                  <p>●</p>
+                  <p>
+                    (5) Internal Works
+                    <br />
+                    ©25 <small>c/o</small> BASIC/DEPT®
+                  </p>
+                </div>
+
+                <p>
+                  A collection of internal project and initiatives under the
+                  BASIC/DEPT® brand.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </>
       )}
