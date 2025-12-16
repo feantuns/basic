@@ -39,7 +39,7 @@ export const FullScreenMenu = ({ isOpen }) => {
 
   const menuSlideVariants: any = {
     initial: {
-      x: "100%",
+      x: "10%",
     },
     closed: {
       opacity: 0,
@@ -48,7 +48,7 @@ export const FullScreenMenu = ({ isOpen }) => {
         ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
       },
       transitionEnd: {
-        x: "100%",
+        x: "10%",
       },
     },
     open: {
@@ -101,6 +101,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 initial="closed"
                 animate="open"
                 exit="closed"
+                className="grow-1 bg-[#1C1C1C] h-full w-full"
               >
                 <div className="flex flex-row leading-[120%] text-rose-200 uppercase text-sm gap-12 items-start">
                   <div className="flex flex-row gap-8 items-start">
@@ -118,6 +119,11 @@ export const FullScreenMenu = ({ isOpen }) => {
                   </p>
                 </div>
               </motion.div>
+
+              <div className="flex flex-row leading-[120%] text-stone-600 uppercase text-sm gap-12 items-center justify-between">
+                <p>BASIC/DEPT®, INC</p>
+                <p>10 - 25©</p>
+              </div>
             </div>
           </motion.div>
         </>
