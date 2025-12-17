@@ -80,7 +80,7 @@ export const FullScreenMenu = ({ isOpen }) => {
             className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-53 flex flex-col justify-between h-screen w-screen px-5 py-8 md:px-20 md:py-12"
           >
             <div className="flex flex-col w-full h-full">
-              <div className="flex flex-row leading-[120%] text-rose-200 uppercase text-sm gap-12 items-start">
+              <div className="flex flex-row leading-[120%] text-brand uppercase text-sm gap-12 items-start">
                 <div className="flex flex-row gap-8 items-start">
                   <p>●</p>
                   <p>
