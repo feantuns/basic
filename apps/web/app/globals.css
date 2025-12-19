@@ -10,3 +10,7 @@
   background-color: #212121;
   color: #ffffff;
 }
+
+@theme {
+  --color-brand: #4f46e5;
+}
