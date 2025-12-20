@@ -12,5 +12,6 @@
 }
 
 @theme {
-  --color-brand: #4f46e5;
+  --color-secondary: #f9cdcd;
+  --color-footer-copyright: #5e5e5e;
 }
