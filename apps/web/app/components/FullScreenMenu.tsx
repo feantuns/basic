@@ -39,21 +39,21 @@ export const FullScreenMenu = ({ isOpen }) => {
 
   const menuSlideVariants: any = {
     initial: {
-      x: "10%",
+      x: "100%",
     },
     closed: {
-      opacity: 0,
+      // opacity: 0,
       transition: {
         duration: 0.3,
         ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
       },
       transitionEnd: {
-        x: "10%",
+        x: "-100%",
       },
     },
     open: {
-      x: "0%",
-      opacity: 1,
+      x: "-100%",
+      // opacity: 1,
       transition: {
         duration: 0.8,
         ease: [0.76, 0, 0.24, 1],
@@ -72,6 +72,13 @@ export const FullScreenMenu = ({ isOpen }) => {
             exit="closed"
             className="fixed inset-0 bg-[#1C1C1C] z-52 pointer-events-none"
           />
+          <motion.div
+            variants={menuSlideVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="absolute z-53 bg-[#1C1C1C] h-full w-full"
+          ></motion.div>
           <motion.div
             variants={menuVariants}
             initial="closed"
@@ -96,29 +103,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 </p>
               </div>
 
-              <motion.div
-                variants={menuSlideVariants}
-                initial="closed"
-                animate="open"
-                exit="closed"
-                className="grow-1 bg-[#1C1C1C] h-full w-full"
-              >
-                <div className="flex flex-row leading-[120%] text-rose-200 uppercase text-sm gap-12 items-start">
-                  <div className="flex flex-row gap-8 items-start">
-                    <p>●</p>
-                    <p>
-                      (5) Internal Works
-                      <br />
-                      ©25 <small>c/o</small> BASIC/DEPT®
-                    </p>
-                  </div>
-
-                  <p>
-                    A collection of internal project and initiatives under the
-                    BASIC/DEPT® brand.
-                  </p>
-                </div>
-              </motion.div>
+              <div className="grow-1" />
 
               <div className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between">
                 <p>BASIC/DEPT®, INC</p>
