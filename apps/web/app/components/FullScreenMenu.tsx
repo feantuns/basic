@@ -39,23 +39,21 @@ export const FullScreenMenu = ({ isOpen }) => {
 
   const menuSlideVariants: any = {
     initial: {
-      x: "100%",
+      width: 0,
     },
     closed: {
-      // opacity: 0,
+      opacity: 0,
+      width: "80%",
       transition: {
-        duration: 0.3,
-        ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
-      },
-      transitionEnd: {
-        x: "-100%",
+        duration: 0,
       },
     },
     open: {
-      x: "-100%",
-      // opacity: 1,
+      width: 0,
+      opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
+        delay: 0.2,
         ease: [0.76, 0, 0.24, 1],
       },
     },
@@ -77,8 +75,8 @@ export const FullScreenMenu = ({ isOpen }) => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="absolute z-53 bg-[#1C1C1C] h-full w-full"
-          ></motion.div>
+            className="fixed inset-0 z-54 bg-[#1C1C1C] pointer-events-none"
+          />
           <motion.div
             variants={menuVariants}
             initial="closed"
