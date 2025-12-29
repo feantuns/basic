@@ -52,9 +52,15 @@ export const FullScreenMenu = ({ isOpen }) => {
       width: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
-        delay: 0.2,
-        ease: [0.76, 0, 0.24, 1],
+        // 1. Specific settings for 'width'
+        width: {
+          duration: 1.5,
+          ease: [0.76, 0, 0.24, 1],
+        },
+        // 2. Specific settings for 'opacity'
+        opacity: {
+          duration: 0, // Changes instantly
+        },
       },
     },
   };
