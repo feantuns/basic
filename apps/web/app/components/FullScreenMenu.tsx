@@ -31,8 +31,26 @@ export const FullScreenMenu = ({ isOpen }) => {
     open: {
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.2,
         ease: [0.76, 0, 0.24, 1],
+      },
+    },
+  };
+
+  const footerVariants: any = {
+    closed: {
+      opacity: 0,
+      transition: {
+        duration: 0.3,
+        ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
+      },
+    },
+    open: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+        delay: 0.9,
       },
     },
   };
@@ -43,7 +61,7 @@ export const FullScreenMenu = ({ isOpen }) => {
     },
     closed: {
       opacity: 0,
-      width: "80%",
+      width: "90%",
       transition: {
         duration: 0,
       },
@@ -59,7 +77,8 @@ export const FullScreenMenu = ({ isOpen }) => {
         },
         // 2. Specific settings for 'opacity'
         opacity: {
-          duration: 0, // Changes instantly
+          duration: 0.2, // Changes instantly
+          // delay: 0.2,
         },
       },
     },
@@ -109,10 +128,16 @@ export const FullScreenMenu = ({ isOpen }) => {
 
               <div className="grow-1" />
 
-              <div className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between">
+              <motion.div
+                variants={footerVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between"
+              >
                 <p>BASIC/DEPT®, INC</p>
                 <p>10 - 25©</p>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </>
