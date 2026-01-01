@@ -7,14 +7,14 @@ export const FullScreenMenu = ({ isOpen }) => {
     closed: {
       opacity: 0,
       transition: {
-        duration: 0.5, // Match the slide duration for sync
+        duration: 0.2, // Match the slide duration for sync
         ease: [0.76, 0, 0.24, 1],
       },
     },
     open: {
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.1,
         ease: [0.76, 0, 0.24, 1],
       },
     },
