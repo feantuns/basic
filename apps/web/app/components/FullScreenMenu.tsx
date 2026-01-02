@@ -127,7 +127,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 </p>
               </div>
 
-              <div className="grow-1" />
+              <div className="grow-1"></div>
 
               <motion.div
                 variants={footerVariants}
