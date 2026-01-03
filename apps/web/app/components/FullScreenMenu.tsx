@@ -127,7 +127,16 @@ export const FullScreenMenu = ({ isOpen }) => {
                 </p>
               </div>
 
-              <div className="grow-1"></div>
+              <div className="grow-1 overflow-x-auto flex gap-2">
+                {[...Array(10)].map((_, index) => (
+                  <div
+                    key={index}
+                    className="min-w-[300px] h-[200px] bg-[#333333] flex-shrink-0"
+                  >
+                    {/* Placeholder for project thumbnail */}
+                  </div>
+                ))}
+              </div>
 
               <motion.div
                 variants={footerVariants}
