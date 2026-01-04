@@ -108,10 +108,10 @@ export const FullScreenMenu = ({ isOpen }) => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-53 flex flex-col justify-between h-screen w-screen px-5 py-8 md:px-20 md:py-12"
+            className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-53 flex flex-col justify-between h-screen w-screen pl-5 py-8 md:pl-20 md:py-12"
           >
             <div className="flex flex-col w-full h-full">
-              <div className="flex flex-row leading-[120%] text-secondary uppercase text-sm gap-12 items-start">
+              <div className="flex flex-row leading-[120%] text-secondary uppercase text-sm gap-12 items-start pr-5 md:pr-20">
                 <div className="flex flex-row gap-8 items-start">
                   <p>●</p>
                   <p>
@@ -127,11 +127,11 @@ export const FullScreenMenu = ({ isOpen }) => {
                 </p>
               </div>
 
-              <div className="grow-1 overflow-x-auto flex gap-2">
+              <div className="grow-1 overflow-x-auto flex gap-2 pt-12 pb-8">
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
-                    className="min-w-[300px] h-[200px] bg-[#333333] flex-shrink-0"
+                    className="min-w-[calc(100vw/4)] h-full bg-[#333333] flex-shrink-0"
                   >
                     {/* Placeholder for project thumbnail */}
                   </div>
@@ -143,7 +143,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between"
+                className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between pr-5 md:pr-20"
               >
                 <p>BASIC/DEPT®, INC</p>
                 <p>10 - 25©</p>
