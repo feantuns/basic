@@ -131,7 +131,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
-                    className="min-w-[calc(100vw/4)] h-full bg-[#333333] flex-shrink-0"
+                    className="min-w-[calc(113vw/4)] h-full bg-[#333333] flex-shrink-0"
                   >
                     {/* Placeholder for project thumbnail */}
                   </div>
