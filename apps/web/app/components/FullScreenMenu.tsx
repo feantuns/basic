@@ -127,7 +127,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 </p>
               </div>
 
-              <div className="grow-1 overflow-x-auto flex gap-2 pt-12 pb-8">
+              <div className="grow-1 overflow-x-auto no-scrollbar flex gap-2 pt-12 pb-8">
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
