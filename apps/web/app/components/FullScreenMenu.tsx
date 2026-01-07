@@ -85,6 +85,26 @@ export const FullScreenMenu = ({ isOpen }) => {
     },
   };
 
+  const cardsSlideVariants: any = {
+    initial: {
+      x: "20%",
+    },
+    closed: {
+      x: "20%",
+      transition: {
+        duration: 0,
+      },
+    },
+    open: {
+      x: 0,
+      transition: {
+        duration: 1.4,
+        ease: [0.76, 0, 0.24, 1],
+        delay: 0.1,
+      },
+    },
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -127,7 +147,13 @@ export const FullScreenMenu = ({ isOpen }) => {
                 </p>
               </div>
 
-              <div className="grow-1 overflow-x-auto no-scrollbar flex gap-2 pt-12 pb-8">
+              <motion.div
+                variants={cardsSlideVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                className="grow-1 overflow-x-auto no-scrollbar flex gap-2 pt-12 pb-8"
+              >
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
@@ -136,7 +162,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                     {/* Placeholder for project thumbnail */}
                   </div>
                 ))}
-              </div>
+              </motion.div>
 
               <motion.div
                 variants={footerVariants}
