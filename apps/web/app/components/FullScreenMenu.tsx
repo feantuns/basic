@@ -92,7 +92,7 @@ export const FullScreenMenu = ({ isOpen }) => {
     closed: {
       x: "20%",
       transition: {
-        delay: 1,
+        delay: 0.5,
       },
     },
     open: {
