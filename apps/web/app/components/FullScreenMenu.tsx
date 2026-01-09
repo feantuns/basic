@@ -73,8 +73,13 @@ export const FullScreenMenu = ({ isOpen }) => {
       transition: {
         // 1. Specific settings for 'width'
         width: {
-          duration: 1.5,
-          ease: [0.76, 0, 0.24, 1],
+          duration: 1,
+          // ease: [0.76, 0, 0.24, 1],
+          // Starts very flat, ends almost vertically
+          // ease: [0.95, 0.05, 0.795, 0.035],
+          // The last two numbers (1, 1) ensure it hits the end at full speed
+          // ease: [0.64, 0, 1, 1],
+          ease: [0.5, 0, 0.2, 1],
         },
         // 2. Specific settings for 'opacity'
         opacity: {
@@ -98,8 +103,11 @@ export const FullScreenMenu = ({ isOpen }) => {
     open: {
       x: 0,
       transition: {
-        duration: 1.4,
-        ease: [0.76, 0, 0.24, 1],
+        duration: 0.9,
+        // ease: [0.76, 0, 0.24, 1],
+        // The last two numbers (1, 1) ensure it hits the end at full speed
+        // ease: [0.64, 0, 1, 1],
+        ease: [0.5, 0, 0.2, 1],
         delay: 0.1,
       },
     },
