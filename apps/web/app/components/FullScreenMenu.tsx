@@ -1,13 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 export const FullScreenMenu = ({ isOpen }) => {
-  // Animation for the dark background fade
   const backdropVariants: any = {
     closed: {
       opacity: 0,
       transition: {
-        duration: 0.2, // Match the slide duration for sync
+        duration: 0.2,
         ease: [0.76, 0, 0.24, 1],
       },
     },
@@ -25,7 +23,7 @@ export const FullScreenMenu = ({ isOpen }) => {
       opacity: 0,
       transition: {
         duration: 0.3,
-        ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
+        ease: [0.76, 0, 0.24, 1],
       },
     },
     open: {
@@ -43,7 +41,7 @@ export const FullScreenMenu = ({ isOpen }) => {
       opacity: 0,
       transition: {
         duration: 0.3,
-        ease: [0.76, 0, 0.24, 1], // Custom bezier for smooth "luxury" feel
+        ease: [0.76, 0, 0.24, 1],
       },
     },
     open: {
@@ -71,20 +69,12 @@ export const FullScreenMenu = ({ isOpen }) => {
       width: 0,
       opacity: 1,
       transition: {
-        // 1. Specific settings for 'width'
         width: {
           duration: 1,
-          // ease: [0.76, 0, 0.24, 1],
-          // Starts very flat, ends almost vertically
-          // ease: [0.95, 0.05, 0.795, 0.035],
-          // The last two numbers (1, 1) ensure it hits the end at full speed
-          // ease: [0.64, 0, 1, 1],
-          ease: [0.5, 0, 0.2, 1],
+          ease: [0.95, 0, 0.2, 1],
         },
-        // 2. Specific settings for 'opacity'
         opacity: {
-          duration: 0.2, // Changes instantly
-          // delay: 0.2,
+          duration: 0.2,
         },
       },
     },
@@ -103,12 +93,8 @@ export const FullScreenMenu = ({ isOpen }) => {
     open: {
       x: 0,
       transition: {
-        duration: 0.9,
-        // ease: [0.76, 0, 0.24, 1],
-        // The last two numbers (1, 1) ensure it hits the end at full speed
-        // ease: [0.64, 0, 1, 1],
-        ease: [0.5, 0, 0.2, 1],
-        delay: 0.1,
+        duration: 1.2,
+        ease: [0.76, 0, 0.24, 1],
       },
     },
   };
