@@ -49,7 +49,7 @@ export const FullScreenMenu = ({ isOpen }) => {
       transition: {
         duration: 0.5,
         ease: [0.76, 0, 0.24, 1],
-        delay: 0.9,
+        delay: 0.8,
       },
     },
   };
@@ -151,9 +151,9 @@ export const FullScreenMenu = ({ isOpen }) => {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
-                    className="min-w-[calc(113vw/4)] h-full bg-[#333333] flex-shrink-0"
+                    className="min-w-[calc(113vw/4)] h-full pl-2 flex-shrink-0 border-l-secondary border-l-1"
                   >
-                    {/* Placeholder for project thumbnail */}
+                    <div className="bg-[#333333] w-full h-full"></div>
                   </div>
                 ))}
               </motion.div>
