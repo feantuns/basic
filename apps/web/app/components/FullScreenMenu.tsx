@@ -151,9 +151,12 @@ export const FullScreenMenu = ({ isOpen }) => {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
-                    className="min-w-[calc(113vw/4)] h-full pl-2 flex-shrink-0 border-l-secondary border-l-1"
+                    className="min-w-[calc(113vw/4)] h-full flex-shrink-0 "
                   >
-                    <div className="bg-[#333333] w-full h-full"></div>
+                    <div className="pl-2 border-l-secondary border-l-1 w-full h-full">
+                      <div className="bg-[#333333] w-full h-full"></div>
+                    </div>
+                    <span className="text-secondary">{index + 1}</span>
                   </div>
                 ))}
               </motion.div>
