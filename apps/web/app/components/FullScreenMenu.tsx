@@ -151,12 +151,14 @@ export const FullScreenMenu = ({ isOpen }) => {
                 {[...Array(10)].map((_, index) => (
                   <div
                     key={index}
-                    className="min-w-[calc(113vw/4)] h-full flex-shrink-0 "
+                    className="min-w-[calc(113vw/4)] h-full flex-shrink-0 flex flex-col gap-3"
                   >
                     <div className="pl-2 border-l-secondary border-l-1 w-full h-full">
                       <div className="bg-[#333333] w-full h-full"></div>
                     </div>
-                    <span className="text-secondary">{index + 1}</span>
+                    <span className="text-secondary inline-block text-xs font-light">
+                      {index < 9 ? `0${index + 1}` : index + 1}
+                    </span>
                   </div>
                 ))}
               </motion.div>
@@ -166,7 +168,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between pr-5 md:pr-20"
+                className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between pt-1 pr-5 md:pr-20"
               >
                 <p>BASIC/DEPT®, INC</p>
                 <p>10 - 25©</p>
