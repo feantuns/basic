@@ -148,13 +148,15 @@ export const FullScreenMenu = ({ isOpen }) => {
                 exit="closed"
                 className="grow-1 overflow-x-auto no-scrollbar flex gap-2 pt-12 pb-8"
               >
-                {[...Array(10)].map((_, index) => (
+                {[...Array(5)].map((_, index) => (
                   <div
                     key={index}
                     className="min-w-[calc(113vw/4)] h-full flex-shrink-0 flex flex-col gap-3"
                   >
                     <div className="pl-2 border-l-secondary border-l-1 w-full h-full">
-                      <div className="bg-[#333333] w-full h-full"></div>
+                      <div className="bg-[#1C1C1C] w-full h-full">
+                        <img src={`/menu_slide_${index}.webp`} alt="slide" />
+                      </div>
                     </div>
                     <span className="text-secondary inline-block text-xs font-light">
                       {index < 9 ? `0${index + 1}` : index + 1}
