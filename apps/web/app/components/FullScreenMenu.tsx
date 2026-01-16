@@ -155,7 +155,11 @@ export const FullScreenMenu = ({ isOpen }) => {
                   >
                     <div className="pl-2 border-l-secondary border-l-1 w-full h-full">
                       <div className="bg-[#1C1C1C] w-full h-full">
-                        <img src={`/menu_slide_${index}.webp`} alt="slide" />
+                        <img
+                          src={`/menu_slide_${index}.webp`}
+                          alt="slide"
+                          className="h-full"
+                        />
                       </div>
                     </div>
                     <span className="text-secondary inline-block text-xs font-light">
