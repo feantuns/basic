@@ -154,13 +154,13 @@ export const FullScreenMenu = ({ isOpen }) => {
                     className="w-[calc(113vw/4)] h-full flex-shrink-0 flex flex-col gap-3"
                   >
                     <div className="pl-2 border-l-secondary border-l-1 w-full flex-1">
-                      <div className="bg-[#1C1C1C] w-full flex flex-col">
+                      <div className="bg-[#1C1C1C] w-full grid grid-rows-[2fr 1fr]">
                         <img
                           src={`/menu_slide_${index}.webp`}
                           alt="slide"
                           className="w-full object-cover flex-1"
                         />
-                        <div className="min-h-[80px] w-full bg-[#1C1C1C]"></div>
+                        <div className="w-full bg-[#1C1C1C]"></div>
                       </div>
                     </div>
                     <span className="text-secondary inline-block text-xs font-light">
