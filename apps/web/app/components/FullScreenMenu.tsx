@@ -146,12 +146,12 @@ export const FullScreenMenu = ({ isOpen }) => {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                className="grow-1 overflow-x-auto no-scrollbar flex gap-2 pt-12 pb-8"
+                className="grow-1 overflow-x-auto no-scrollbar min-h-0 flex gap-2"
               >
                 {[...Array(5)].map((_, index) => (
                   <div
                     key={index}
-                    className="w-[calc(113vw/4)] h-full flex-shrink-0 flex flex-col gap-3"
+                    className="w-[calc(113vw/4)] flex-shrink-0 flex flex-col gap-3"
                   >
                     <div className="pl-2 border-l-secondary border-l-1 w-full flex-1">
                       <div className="bg-[#1C1C1C] w-full grid grid-rows-[2fr 1fr]">
