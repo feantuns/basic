@@ -125,7 +125,7 @@ export const FullScreenMenu = ({ isOpen }) => {
             className="fixed inset-0 bg-[#1C1C1C] text-[#F4F4F4] z-53 flex flex-col justify-between h-screen w-screen pl-5 py-8 md:pl-20 md:py-12"
           >
             <div className="flex flex-col w-full h-full">
-              <div className="flex flex-row leading-[120%] text-secondary uppercase text-sm gap-12 items-start pr-5 md:pr-20">
+              <div className="flex flex-row leading-[120%] text-secondary uppercase text-sm gap-12 items-start pb-12 pr-5 md:pr-20">
                 <div className="flex flex-row gap-8 items-start">
                   <p>●</p>
                   <p>
@@ -158,9 +158,9 @@ export const FullScreenMenu = ({ isOpen }) => {
                         <img
                           src={`/menu_slide_${index}.webp`}
                           alt="slide"
-                          className="w-full h-[60%] object-cover"
+                          className="w-full h-[75%] object-cover"
                         />
-                        <div className="w-full h-[40%] bg-[#1C1C1C]">
+                        <div className="w-full h-[25%] bg-[#1C1C1C]">
                           a<br />b<br />c<br />
                         </div>
                       </div>
@@ -177,7 +177,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between pt-1 pr-5 md:pr-20"
+                className="flex flex-row leading-[120%] text-footer-copyright uppercase text-sm gap-12 items-center justify-between pt-8 pr-5 md:pr-20"
               >
                 <p>BASIC/DEPT®, INC</p>
                 <p>10 - 25©</p>
