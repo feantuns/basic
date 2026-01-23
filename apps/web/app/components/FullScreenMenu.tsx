@@ -189,3 +189,39 @@ export const FullScreenMenu = ({ isOpen }) => {
     </AnimatePresence>
   );
 };
+
+const cards = [
+  {
+    id: 1,
+    image: "/menu_slide_0.webp",
+    title: "B/D® JAMS",
+    subtitle: "It's a vibe",
+    description:
+      "A weekly-ish playlist curated by the employees @ BASIC/DEPT®",
+    linkText: "Visit the Site",
+    link: "https://jams.basicagency.com/",
+    year: "©2022",
+  },
+  {
+    id: 2,
+    image: "/menu_slide_1.webp",
+    title: "Applied®",
+    subtitle: "Thoughts & Perspectives",
+    description:
+      "Our panel series and thought-leadership platform where we share perspectives and tactics related to strategy, design, and technology.",
+    linkText: "Explore Applied",
+    link: "https://www.basicagency.com/thinking/category/applied",
+    year: "2020",
+  },
+  {
+    id: 3,
+    image: "/menu_slide_2.webp",
+    title: "Applied®",
+    subtitle: "Thoughts & Perspectives",
+    description:
+      "Our panel series and thought-leadership platform where we share perspectives and tactics related to strategy, design, and technology.",
+    linkText: "Explore Applied",
+    link: "https://www.basicagency.com/thinking/category/applied",
+    year: "2020",
+  },
+];
