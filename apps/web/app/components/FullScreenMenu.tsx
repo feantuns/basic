@@ -216,12 +216,34 @@ const cards = [
   {
     id: 3,
     image: "/menu_slide_2.webp",
-    title: "Applied®",
-    subtitle: "Thoughts & Perspectives",
+    title: "Moves®",
+    subtitle: "Our New HQ",
     description:
-      "Our panel series and thought-leadership platform where we share perspectives and tactics related to strategy, design, and technology.",
-    linkText: "Explore Applied",
-    link: "https://www.basicagency.com/thinking/category/applied",
-    year: "2020",
+      "When we moved into our new HQ, we put together a site experience providing an in-depth look into the two-year process imagining, designing, and developing our new office we call home.",
+    linkText: "Visit the Site",
+    link: "https://moves.basicagency.com/",
+    year: "2019",
+  },
+  {
+    id: 4,
+    image: "/menu_slide_3.webp",
+    title: "Crafted®",
+    subtitle: "Creative Community",
+    description:
+      "A communal initiative we operate to celebrate diversity and creativity by bringing together people from different backgrounds and interests.",
+    linkText: "Visit the Site",
+    link: "https://experiencecrafted.com/",
+    year: "2019",
+  },
+  {
+    id: 5,
+    image: "/menu_slide_4.webp",
+    title: "Brandbeats®",
+    subtitle: "Podcast Series",
+    description:
+      "Our podcast series garnering 45,000+ listens per episode providing candid conversations around various industry related topics.",
+    linkText: "Explore Brandbeats",
+    link: "https://www.basicagency.com/thinking/categories/brandbeats",
+    year: "2017",
   },
 ];
