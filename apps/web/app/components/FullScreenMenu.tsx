@@ -148,7 +148,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 exit="closed"
                 className="grow-1 overflow-x-auto no-scrollbar min-h-0 flex gap-2"
               >
-                {[...Array(5)].map((_, index) => (
+                {cards.map((card, index) => (
                   <div
                     key={index}
                     className="w-[calc(113vw/4)] flex-shrink-0 flex flex-col gap-3 group"
@@ -156,12 +156,12 @@ export const FullScreenMenu = ({ isOpen }) => {
                     <div className="pl-2 border-l-secondary border-l-1 w-full flex-1 h-[calc(100%-28px)]">
                       <div className="bg-[#1C1C1C] w-full h-full overflow-hidden">
                         <img
-                          src={`/menu_slide_${index}.webp`}
+                          src={card.image}
                           alt="slide"
                           className="relative w-full h-[73%] object-cover transition-transform duration-300 ease-in-out scale-110 group-hover:scale-100"
                         />
-                        <div className="relative z-1 w-full h-[27%] bg-[#1C1C1C]">
-                          a<br />b<br />c<br />
+                        <div className="relative z-1 w-full h-[27%] bg-[#1C1C1C] transition-transform duration-300 ease-in-out scale-y-100 group-hover:scale-y-120">
+                          {card.title}
                         </div>
                       </div>
                     </div>
