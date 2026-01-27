@@ -160,7 +160,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                           alt="slide"
                           className="relative w-full h-[73%] object-cover transition-transform duration-300 ease-in-out scale-110 group-hover:scale-100"
                         />
-                        <div className="relative z-1 w-full h-[27%] bg-[#1C1C1C] transition-transform duration-300 ease-in-out scale-y-100 group-hover:scale-y-120">
+                        <div className="relative z-1 w-full h-[50%] bg-[#1C1C1C] transition-transform duration-300 ease-in-out translate-y-0 group-hover:translate-y-[-68%]">
                           {card.title}
                         </div>
                       </div>
