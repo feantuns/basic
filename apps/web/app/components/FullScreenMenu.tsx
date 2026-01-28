@@ -160,8 +160,11 @@ export const FullScreenMenu = ({ isOpen }) => {
                           alt="slide"
                           className="relative w-full h-[73%] object-cover transition-transform duration-300 ease-in-out scale-110 group-hover:scale-100"
                         />
-                        <div className="relative z-1 w-full h-[50%] bg-[#1C1C1C] transition-transform duration-300 ease-in-out translate-y-0 group-hover:translate-y-[-68%]">
-                          {card.title}
+                        <div className="relative p-4 z-1 w-full h-[50%] bg-[#1C1C1C] transition-transform duration-300 ease-in-out translate-y-0 group-hover:translate-y-[-68%]">
+                          <div className="flex justify-between text-secondary text-xl font-semibold">
+                            <span>{card.title}</span>
+                            <span>{card.year}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -211,7 +214,7 @@ const cards = [
       "Our panel series and thought-leadership platform where we share perspectives and tactics related to strategy, design, and technology.",
     linkText: "Explore Applied",
     link: "https://www.basicagency.com/thinking/category/applied",
-    year: "2020",
+    year: "©2020",
   },
   {
     id: 3,
@@ -222,7 +225,7 @@ const cards = [
       "When we moved into our new HQ, we put together a site experience providing an in-depth look into the two-year process imagining, designing, and developing our new office we call home.",
     linkText: "Visit the Site",
     link: "https://moves.basicagency.com/",
-    year: "2019",
+    year: "©2019",
   },
   {
     id: 4,
@@ -233,7 +236,7 @@ const cards = [
       "A communal initiative we operate to celebrate diversity and creativity by bringing together people from different backgrounds and interests.",
     linkText: "Visit the Site",
     link: "https://experiencecrafted.com/",
-    year: "2019",
+    year: "©2019",
   },
   {
     id: 5,
@@ -244,6 +247,6 @@ const cards = [
       "Our podcast series garnering 45,000+ listens per episode providing candid conversations around various industry related topics.",
     linkText: "Explore Brandbeats",
     link: "https://www.basicagency.com/thinking/categories/brandbeats",
-    year: "2017",
+    year: "©2017",
   },
 ];
