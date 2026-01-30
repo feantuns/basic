@@ -158,7 +158,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                         <img
                           src={card.image}
                           alt="slide"
-                          className="relative w-full h-[73%] object-cover transition-transform duration-300 ease-in-out scale-110 group-hover:scale-100"
+                          className="relative w-full h-[73%] object-cover transition-transform duration-300 ease-in scale-110 group-hover:scale-100"
                         />
                         <div className="relative p-4 z-1 w-full h-[50%] bg-[#1C1C1C] transition-transform duration-300 ease-in-out translate-y-0 group-hover:translate-y-[-68%]">
                           <div className="flex justify-between text-secondary text-xl tracking-wide uppercase font-semibold">
@@ -168,14 +168,13 @@ export const FullScreenMenu = ({ isOpen }) => {
                           <span className="text-secondary text-xs uppercase mt-2 block">
                             {card.subtitle}
                           </span>
-                          <span className="text-secondary text-sm mt-4 block transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100">
+                          <span className="text-secondary text-sm mt-5 block transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100">
                             {card.description}
                           </span>
-
                           <a
                             href={card.link}
                             target="_self"
-                            className="text-secondary underline font-semibold text-sm mt-8 block transition-opacity duration-300 ease-out opacity-0 group-hover:opacity-100"
+                            className="text-secondary underline font-semibold text-sm mt-8 block transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100"
                           >
                             {card.linkText}
                           </a>
