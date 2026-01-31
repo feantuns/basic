@@ -151,9 +151,9 @@ export const FullScreenMenu = ({ isOpen }) => {
                 {cards.map((card, index) => (
                   <div
                     key={index}
-                    className="w-[calc(113vw/4)] flex-shrink-0 flex flex-col gap-3 group"
+                    className="w-[calc(113vw/4)] flex-shrink-0 flex flex-col gap-3 group last:mr-22"
                   >
-                    <div className="pl-2 border-l-secondary border-l-1 w-full flex-1 h-[calc(100%-28px)]">
+                    <div className="pl-2 border-l-secondary group-last:border-r-secondary group-last:border-r-1 group-last:pr-2 border-l-1 w-full flex-1 h-[calc(100%-28px)]">
                       <div className="bg-[#1C1C1C] w-full h-full overflow-hidden">
                         <img
                           src={card.image}
