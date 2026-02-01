@@ -1,4 +1,6 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { getRelativePosition } from "../utils";
 
 export const FullScreenMenu = ({ isOpen }) => {
   const backdropVariants: any = {
@@ -99,6 +101,64 @@ export const FullScreenMenu = ({ isOpen }) => {
     },
   };
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const realVideoRef = useRef<HTMLVideoElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const springX = useSpring(50, {
+    stiffness: 800,
+    damping: 100,
+    bounce: 0,
+  });
+  const springY = useSpring(50, {
+    stiffness: 800,
+    damping: 100,
+    bounce: 0,
+  });
+
+  useEffect(() => {
+    springX.set(window?.innerWidth / 2);
+    springY.set(window?.innerHeight / 2 - 115);
+  }, []);
+
+  useEffect(() => {
+    const handleMove = (e: any) => {
+      const { x, y } = getRelativePosition(e, heroRef.current);
+      springX.set(x);
+      springY.set(y);
+    };
+    if (isActive) window.addEventListener("mousemove", handleMove);
+    else window.removeEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, [isActive]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: any) => {
+      if (!heroRef.current) return;
+      const rect = heroRef.current.getBoundingClientRect();
+      const isInside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      // when you leave hero area
+      if (!isInside && isActive) {
+        setIsActive(false);
+        document.body.style.cursor = "auto";
+
+        // animate smoothly to the hero's center
+        springX.set(rect.width / 2);
+        springY.set(rect.height / 2 - 50);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [isActive, springX, springY]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -142,12 +202,53 @@ export const FullScreenMenu = ({ isOpen }) => {
               </div>
 
               <motion.div
+                ref={heroRef}
                 variants={cardsSlideVariants}
                 initial="closed"
                 animate="open"
                 exit="closed"
                 className="grow-1 overflow-x-auto no-scrollbar min-h-0 flex gap-2"
+                onMouseEnter={() => {
+                  if (!isPlaying) {
+                    setIsActive(true);
+                    document.body.style.cursor = "none";
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (!isPlaying) {
+                    document.body.style.cursor = "auto";
+                    setIsActive(false);
+                    springX.set(Number(heroRef.current?.clientWidth) / 2);
+                    springY.set(
+                      Number(heroRef.current?.clientHeight) / 2 - 104,
+                    );
+                  }
+                }}
               >
+                {/* Custom cursor */}
+                <motion.div
+                  className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-white text-center"
+                  style={{
+                    y: springY,
+                    x: springX,
+                    translateX: "-50%",
+                    translateY: "-50%",
+                    display: isPlaying ? "none" : "flex",
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 800,
+                    damping: 100,
+                    bounce: 0,
+                  }}
+                >
+                  <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
+                    Watch <br /> reel
+                    <span className="absolute top-[260%] left-[50%] translate-x-[-50%] text-sm font-semibold uppercase leading-[115%] text-white">
+                      BASIC/DEPT® 2010-∞
+                    </span>
+                  </div>
+                </motion.div>
                 {cards.map((card, index) => (
                   <div
                     key={index}
