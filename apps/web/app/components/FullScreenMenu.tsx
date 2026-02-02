@@ -101,13 +101,11 @@ export const FullScreenMenu = ({ isOpen }) => {
     },
   };
 
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const realVideoRef = useRef<HTMLVideoElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const springX = useSpring(50, {
+  const springX = useSpring(80, {
     stiffness: 800,
     damping: 100,
     bounce: 0,
@@ -119,8 +117,7 @@ export const FullScreenMenu = ({ isOpen }) => {
   });
 
   useEffect(() => {
-    springX.set(window?.innerWidth / 2);
-    springY.set(window?.innerHeight / 2 - 115);
+    springY.set(window?.innerHeight / 2);
   }, []);
 
   useEffect(() => {
@@ -150,8 +147,8 @@ export const FullScreenMenu = ({ isOpen }) => {
         document.body.style.cursor = "auto";
 
         // animate smoothly to the hero's center
-        springX.set(rect.width / 2);
-        springY.set(rect.height / 2 - 50);
+        springX.set(rect.width - 20);
+        springY.set(rect.height / 2);
       }
     };
 
@@ -218,10 +215,8 @@ export const FullScreenMenu = ({ isOpen }) => {
                   if (!isPlaying) {
                     document.body.style.cursor = "auto";
                     setIsActive(false);
-                    springX.set(Number(heroRef.current?.clientWidth) / 2);
-                    springY.set(
-                      Number(heroRef.current?.clientHeight) / 2 - 104,
-                    );
+                    springX.set(80);
+                    springY.set(Number(heroRef.current?.clientHeight) / 2);
                   }
                 }}
               >
