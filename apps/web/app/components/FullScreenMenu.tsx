@@ -103,7 +103,6 @@ export const FullScreenMenu = ({ isOpen }) => {
 
   const heroRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const springX = useSpring(80, {
     stiffness: 800,
@@ -206,18 +205,14 @@ export const FullScreenMenu = ({ isOpen }) => {
                 exit="closed"
                 className="grow-1 overflow-x-auto no-scrollbar min-h-0 flex gap-2"
                 onMouseEnter={() => {
-                  if (!isPlaying) {
-                    setIsActive(true);
-                    document.body.style.cursor = "none";
-                  }
+                  setIsActive(true);
+                  document.body.style.cursor = "none";
                 }}
                 onMouseLeave={() => {
-                  if (!isPlaying) {
-                    document.body.style.cursor = "auto";
-                    setIsActive(false);
-                    springX.set(80);
-                    springY.set(Number(heroRef.current?.clientHeight) / 2);
-                  }
+                  document.body.style.cursor = "auto";
+                  setIsActive(false);
+                  springX.set(80);
+                  springY.set(Number(heroRef.current?.clientHeight) / 2);
                 }}
               >
                 {/* Custom cursor */}
@@ -228,7 +223,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                     x: springX,
                     translateX: "-50%",
                     translateY: "-50%",
-                    display: isPlaying ? "none" : "flex",
+                    display: "flex",
                   }}
                   transition={{
                     type: "spring",
