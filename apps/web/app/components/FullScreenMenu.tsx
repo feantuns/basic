@@ -104,7 +104,7 @@ export const FullScreenMenu = ({ isOpen }) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
 
-  const springX = useSpring(80, {
+  const springX = useSpring(120, {
     stiffness: 800,
     damping: 100,
     bounce: 0,
@@ -146,7 +146,7 @@ export const FullScreenMenu = ({ isOpen }) => {
         document.body.style.cursor = "auto";
 
         // animate smoothly to the hero's center
-        springX.set(rect.width - 20);
+        springX.set(rect.width - 120);
         springY.set(rect.height / 2);
       }
     };
@@ -211,13 +211,13 @@ export const FullScreenMenu = ({ isOpen }) => {
                 onMouseLeave={() => {
                   document.body.style.cursor = "auto";
                   setIsActive(false);
-                  springX.set(80);
+                  springX.set(120);
                   springY.set(Number(heroRef.current?.clientHeight) / 2);
                 }}
               >
                 {/* Custom cursor */}
                 <motion.div
-                  className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-white text-center"
+                  className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
                   style={{
                     y: springY,
                     x: springX,
@@ -233,10 +233,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                   }}
                 >
                   <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
-                    Watch <br /> reel
-                    <span className="absolute top-[260%] left-[50%] translate-x-[-50%] text-sm font-semibold uppercase leading-[115%] text-white">
-                      BASIC/DEPT® 2010-∞
-                    </span>
+                    DRAG
                   </div>
                 </motion.div>
                 {cards.map((card, index) => (
