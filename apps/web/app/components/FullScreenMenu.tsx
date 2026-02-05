@@ -116,8 +116,9 @@ export const FullScreenMenu = ({ isOpen }) => {
   });
 
   useEffect(() => {
+    springX.set(window?.innerWidth);
     springY.set(window?.innerHeight / 2);
-  }, []);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleMove = (e: any) => {
