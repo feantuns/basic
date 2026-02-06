@@ -116,7 +116,7 @@ export const FullScreenMenu = ({ isOpen }) => {
   });
 
   useEffect(() => {
-    springX.set(window?.innerWidth);
+    springY.set(120);
     springY.set(window?.innerHeight / 2);
   }, [isOpen]);
 
@@ -203,6 +203,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 variants={cardsSlideVariants}
                 initial="closed"
                 animate="open"
+                key={`open-${isOpen}`}
                 exit="closed"
                 className="grow-1 overflow-x-auto no-scrollbar min-h-0 flex gap-2"
                 onMouseEnter={() => {
