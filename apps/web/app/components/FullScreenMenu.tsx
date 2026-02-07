@@ -104,20 +104,22 @@ export const FullScreenMenu = ({ isOpen }) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
 
-  const springX = useSpring(120, {
+  const springX = useSpring(0, {
     stiffness: 800,
     damping: 100,
     bounce: 0,
   });
-  const springY = useSpring(50, {
+  const springY = useSpring(0, {
     stiffness: 800,
     damping: 100,
     bounce: 0,
   });
 
   useEffect(() => {
-    springY.set(120);
-    springY.set(window?.innerHeight / 2);
+    if (isOpen) {
+      springY.set(window?.innerWidth - 30);
+      springY.set(window?.innerHeight / 2);
+    }
   }, [isOpen]);
 
   useEffect(() => {
@@ -219,7 +221,7 @@ export const FullScreenMenu = ({ isOpen }) => {
               >
                 {/* Custom cursor */}
                 <motion.div
-                  className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
+                  className="absolute top-0 left-0 pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
                   style={{
                     y: springY,
                     x: springX,
