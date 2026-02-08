@@ -116,10 +116,8 @@ export const FullScreenMenu = ({ isOpen }) => {
   });
 
   useEffect(() => {
-    if (isOpen) {
-      springY.set(window?.innerWidth - 30);
-      springY.set(window?.innerHeight / 2);
-    }
+    springY.set(window?.innerWidth - 120);
+    springY.set(window?.innerHeight / 2);
   }, [isOpen]);
 
   useEffect(() => {
@@ -221,7 +219,7 @@ export const FullScreenMenu = ({ isOpen }) => {
               >
                 {/* Custom cursor */}
                 <motion.div
-                  className="absolute top-0 left-0 pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
+                  className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
                   style={{
                     y: springY,
                     x: springX,
