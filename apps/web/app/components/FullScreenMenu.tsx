@@ -116,8 +116,10 @@ export const FullScreenMenu = ({ isOpen }) => {
   });
 
   useEffect(() => {
-    springY.set(window?.innerWidth - 120);
-    springY.set(window?.innerHeight / 2);
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    springX.set(rect?.width - 120);
+    springY.set(rect?.height / 2);
   }, [isOpen]);
 
   useEffect(() => {
