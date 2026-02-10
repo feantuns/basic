@@ -2,6 +2,8 @@ import { AnimatePresence, motion, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { getRelativePosition } from "../utils";
 
+const OFFSET_X = 150;
+
 export const FullScreenMenu = ({ isOpen }) => {
   const backdropVariants: any = {
     closed: {
@@ -118,7 +120,7 @@ export const FullScreenMenu = ({ isOpen }) => {
   useEffect(() => {
     if (!heroRef.current) return;
     const rect = heroRef.current.getBoundingClientRect();
-    springX.set(rect?.width - 120);
+    springX.set(rect?.width - OFFSET_X);
     springY.set(rect?.height / 2);
   }, [isOpen]);
 
@@ -149,7 +151,7 @@ export const FullScreenMenu = ({ isOpen }) => {
         document.body.style.cursor = "auto";
 
         // animate smoothly to the hero's center
-        springX.set(rect.width - 120);
+        springX.set(rect.width - OFFSET_X);
         springY.set(rect.height / 2);
       }
     };
@@ -215,7 +217,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                 onMouseLeave={() => {
                   document.body.style.cursor = "auto";
                   setIsActive(false);
-                  springX.set(120);
+                  springX.set(OFFSET_X);
                   springY.set(Number(heroRef.current?.clientHeight) / 2);
                 }}
               >
