@@ -268,7 +268,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                           <a
                             href={card.link}
                             target="_self"
-                            className="text-secondary underline font-semibold text-sm mt-8 block transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100"
+                            className="text-secondary underline font-semibold text-sm mt-8 inline-block transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100"
                           >
                             {card.linkText}
                           </a>
