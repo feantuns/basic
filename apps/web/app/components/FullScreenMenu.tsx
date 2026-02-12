@@ -160,6 +160,8 @@ export const FullScreenMenu = ({ isOpen }) => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [isActive, springX, springY]);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <AnimatePresence>
       {isOpen && (
