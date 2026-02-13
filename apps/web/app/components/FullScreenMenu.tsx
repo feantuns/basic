@@ -232,6 +232,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                     translateX: "-50%",
                     translateY: "-50%",
                     display: "flex",
+                    opacity: isHovered ? 0.3 : 1,
                   }}
                   transition={{
                     type: "spring",
@@ -240,9 +241,11 @@ export const FullScreenMenu = ({ isOpen }) => {
                     bounce: 0,
                   }}
                 >
-                  <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
-                    DRAG
-                  </div>
+                  {!isHovered ? (
+                    <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
+                      DRAG
+                    </div>
+                  ) : null}
                 </motion.div>
                 {cards.map((card, index) => (
                   <div
@@ -270,7 +273,9 @@ export const FullScreenMenu = ({ isOpen }) => {
                           <a
                             href={card.link}
                             target="_self"
-                            className="text-secondary underline font-semibold text-sm mt-8 inline-block transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100"
+                            className="text-secondary underline font-semibold text-sm mt-4 pt-4 pb-2 inline-block transition-opacity duration-400 ease-in-out opacity-0 group-hover:opacity-100"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
                           >
                             {card.linkText}
                           </a>
