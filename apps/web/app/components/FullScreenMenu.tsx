@@ -240,9 +240,6 @@ export const FullScreenMenu = ({ isOpen }) => {
                     damping: 100,
                     bounce: 0,
                   }}
-                  whileTap={{
-                    scale: 0.6,
-                  }}
                 >
                   {!isHovered ? (
                     <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
