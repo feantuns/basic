@@ -3,106 +3,105 @@ import { useEffect, useRef, useState } from "react";
 import { getRelativePosition } from "../utils";
 
 const OFFSET_X = 150;
+const backdropVariants: any = {
+  closed: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  open: {
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+const menuVariants: any = {
+  closed: {
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  open: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.3,
+    },
+  },
+};
+
+const footerVariants: any = {
+  closed: {
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  open: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.76, 0, 0.24, 1],
+      delay: 0.8,
+    },
+  },
+};
+
+const menuSlideVariants: any = {
+  initial: {
+    width: 0,
+  },
+  closed: {
+    opacity: 0,
+    width: "90%",
+    transition: {
+      duration: 0,
+    },
+  },
+  open: {
+    width: 0,
+    opacity: 1,
+    transition: {
+      width: {
+        duration: 1,
+        ease: [0.95, 0, 0.2, 1],
+      },
+      opacity: {
+        duration: 0.2,
+      },
+    },
+  },
+};
+
+const cardsSlideVariants: any = {
+  initial: {
+    x: "20%",
+  },
+  closed: {
+    x: "20%",
+    transition: {
+      delay: 0.5,
+    },
+  },
+  open: {
+    x: 0,
+    transition: {
+      duration: 1.2,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
 
 export const FullScreenMenu = ({ isOpen }) => {
-  const backdropVariants: any = {
-    closed: {
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-        ease: [0.76, 0, 0.24, 1],
-      },
-    },
-    open: {
-      opacity: 1,
-      transition: {
-        duration: 0.1,
-        ease: [0.76, 0, 0.24, 1],
-      },
-    },
-  };
-
-  const menuVariants: any = {
-    closed: {
-      opacity: 0,
-      transition: {
-        duration: 0.3,
-        ease: [0.76, 0, 0.24, 1],
-      },
-    },
-    open: {
-      opacity: 1,
-      transition: {
-        duration: 0.2,
-        ease: [0.76, 0, 0.24, 1],
-        delay: 0.3,
-      },
-    },
-  };
-
-  const footerVariants: any = {
-    closed: {
-      opacity: 0,
-      transition: {
-        duration: 0.3,
-        ease: [0.76, 0, 0.24, 1],
-      },
-    },
-    open: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.76, 0, 0.24, 1],
-        delay: 0.8,
-      },
-    },
-  };
-
-  const menuSlideVariants: any = {
-    initial: {
-      width: 0,
-    },
-    closed: {
-      opacity: 0,
-      width: "90%",
-      transition: {
-        duration: 0,
-      },
-    },
-    open: {
-      width: 0,
-      opacity: 1,
-      transition: {
-        width: {
-          duration: 1,
-          ease: [0.95, 0, 0.2, 1],
-        },
-        opacity: {
-          duration: 0.2,
-        },
-      },
-    },
-  };
-
-  const cardsSlideVariants: any = {
-    initial: {
-      x: "20%",
-    },
-    closed: {
-      x: "20%",
-      transition: {
-        delay: 0.5,
-      },
-    },
-    open: {
-      x: 0,
-      transition: {
-        duration: 1.2,
-        ease: [0.76, 0, 0.24, 1],
-      },
-    },
-  };
-
   const heroRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
 
