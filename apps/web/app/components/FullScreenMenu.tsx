@@ -161,6 +161,21 @@ export const FullScreenMenu = ({ isOpen }) => {
 
   const [isHovered, setIsHovered] = useState(false);
 
+  const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    const handleMouseDown = () => setIsClicked(true);
+    const handleMouseUp = () => setIsClicked(false);
+
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
+
   return (
     <AnimatePresence>
       {isOpen && (
