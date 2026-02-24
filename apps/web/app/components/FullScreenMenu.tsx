@@ -239,14 +239,21 @@ export const FullScreenMenu = ({ isOpen }) => {
               >
                 {/* Custom cursor */}
                 <motion.div
-                  className="absolute pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
+                  className="absolute flex pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
+                  variants={cursorVariants}
+                  animate={
+                    isClicked && isActive
+                      ? "tap"
+                      : isHovered
+                        ? "hover"
+                        : "default"
+                  }
                   style={{
                     y: springY,
                     x: springX,
                     translateX: "-50%",
                     translateY: "-50%",
-                    display: "flex",
-                    opacity: isHovered ? 0.3 : 1,
+                    // opacity: isHovered ? 0.3 : 1,
                   }}
                   transition={{
                     type: "spring",
@@ -378,3 +385,18 @@ const cards = [
     year: "©2017",
   },
 ];
+
+const cursorVariants = {
+  default: {
+    scale: 1,
+    backgroundColor: "#fab12f", // Solid Secondary
+  },
+  hover: {
+    scale: 1, // Or 1.1 if you want it slightly bigger
+    backgroundColor: "rgba(250, 177, 47, 0.1)", // Transparent Secondary
+  },
+  tap: {
+    scale: 0.8, // <--- SCALES DOWN TO 80%
+    backgroundColor: "#fab12f", // Usually reverts to solid color on click for feedback
+  },
+};
