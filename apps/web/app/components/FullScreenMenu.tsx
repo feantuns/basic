@@ -253,7 +253,6 @@ export const FullScreenMenu = ({ isOpen }) => {
                     x: springX,
                     translateX: "-50%",
                     translateY: "-50%",
-                    // opacity: isHovered ? 0.3 : 1,
                   }}
                   transition={{
                     type: "spring",
