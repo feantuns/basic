@@ -388,14 +388,16 @@ const cards = [
 const cursorVariants = {
   default: {
     scale: 1,
-    backgroundColor: "#fab12f", // Solid Secondary
+    backgroundColor: "#f9cdcd", // Solid Secondary
+    opacity: 1,
   },
   hover: {
     scale: 1, // Or 1.1 if you want it slightly bigger
-    backgroundColor: "rgba(250, 177, 47, 0.1)", // Transparent Secondary
+    backgroundColor: "#f9cdcd", // Transparent Secondary
+    opacity: 0.3,
   },
   tap: {
     scale: 0.8, // <--- SCALES DOWN TO 80%
-    backgroundColor: "#fab12f", // Usually reverts to solid color on click for feedback
+    backgroundColor: "#f9cdcd", // Usually reverts to solid color on click for feedback
   },
 };
