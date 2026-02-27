@@ -176,6 +176,9 @@ export const FullScreenMenu = ({ isOpen }) => {
     };
   }, []);
 
+  const shouldShowDragText =
+    (!isHovered && !isClicked && isActive) || !isActive;
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -261,7 +264,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                     bounce: 0,
                   }}
                 >
-                  {!isHovered ? (
+                  {shouldShowDragText ? (
                     <div className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide">
                       DRAG
                     </div>
@@ -397,7 +400,7 @@ const cursorVariants = {
     opacity: 0.3,
   },
   tap: {
-    scale: 0.8, // <--- SCALES DOWN TO 80%
+    scale: 0.6, // <--- SCALES DOWN TO 80%
     backgroundColor: "#f9cdcd", // Usually reverts to solid color on click for feedback
   },
 };
