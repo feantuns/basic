@@ -264,18 +264,17 @@ export const FullScreenMenu = ({ isOpen }) => {
                     bounce: 0,
                   }}
                 >
-                  <AnimatePresence>
-                    {shouldShowDragText && (
-                      <motion.div
-                        initial={{ y: -20, opacity: 0 }} // Start slightly above and transparent
-                        animate={{ y: 0, opacity: 1 }} // Slide down to normal position and fade in
-                        exit={{ y: -20, opacity: 0 }} // Slide back up and fade out
-                        transition={{ duration: 0.2 }} // Smooth timing
-                        className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide"
-                      >
-                        DRAG
-                      </motion.div>
-                    )}
+                  <AnimatePresence mode="popLayout">
+                    <motion.div
+                      key={`active-${isActive}`}
+                      initial={{ y: -30, opacity: 0 }} // Start slightly above and transparent
+                      animate={{ y: 0, opacity: 1 }} // Slide down to normal position and fade in
+                      exit={{ y: -30, opacity: 0 }} // Slide back up and fade out
+                      transition={{ duration: 0.2 }} // Smooth timing
+                      className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide"
+                    >
+                      DRAG
+                    </motion.div>
                   </AnimatePresence>
                 </motion.div>
                 {cards.map((card, index) => (
