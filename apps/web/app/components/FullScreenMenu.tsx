@@ -242,7 +242,7 @@ export const FullScreenMenu = ({ isOpen }) => {
               >
                 {/* Custom cursor */}
                 <motion.div
-                  className="absolute flex pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full overflow-hidden bg-secondary text-black text-center"
+                  className="absolute flex pointer-events-none z-50 items-center justify-center w-30 h-30 rounded-full bg-secondary text-black text-center"
                   variants={cursorVariants}
                   animate={
                     isClicked && isActive
@@ -264,23 +264,25 @@ export const FullScreenMenu = ({ isOpen }) => {
                     bounce: 0,
                   }}
                 >
-                  <AnimatePresence mode="popLayout">
-                    <motion.div
-                      key={`active-${isActive}`}
-                      initial={{ y: 30, opacity: 0 }} // Start slightly above and transparent
-                      animate={{ y: 0, opacity: 1 }} // Slide down to normal position and fade in
-                      exit={{ y: -10, opacity: 0 }} // Slide back up and fade out
-                      transition={{
-                        type: "spring",
-                        stiffness: 800,
-                        damping: 100,
-                        bounce: 0,
-                      }} // Smooth timing
-                      className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide"
-                    >
-                      DRAG
-                    </motion.div>
-                  </AnimatePresence>
+                  <div className="overflow-hidden h-[17px]">
+                    <AnimatePresence mode="popLayout">
+                      <motion.div
+                        key={`active-${isActive}`}
+                        initial={{ y: 30 }} // Start slightly above and transparent
+                        animate={{ y: 0 }} // Slide down to normal position and fade in
+                        exit={{ y: -10 }} // Slide back up and fade out
+                        transition={{
+                          type: "spring",
+                          stiffness: 800,
+                          damping: 100,
+                          bounce: 0,
+                        }} // Smooth timing
+                        className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide"
+                      >
+                        DRAG
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
                 </motion.div>
                 {cards.map((card, index) => (
                   <div
