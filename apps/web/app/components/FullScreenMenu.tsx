@@ -264,22 +264,22 @@ export const FullScreenMenu = ({ isOpen }) => {
                     bounce: 0,
                   }}
                 >
-                  <div className="overflow-hidden h-[17px]">
-                    <AnimatePresence mode="popLayout">
+                  <div className="overflow-hidden h-[17px] relative">
+                    <AnimatePresence mode="wait">
                       <motion.div
                         key={`active-${isActive}`}
-                        initial={{ y: 30 }} // Start slightly above and transparent
+                        initial={{ y: 20 }} // Start slightly above and transparent
                         animate={{ y: 0 }} // Slide down to normal position and fade in
-                        exit={{ y: -10 }} // Slide back up and fade out
+                        exit={{ y: -20 }} // Slide back up and fade out
                         transition={{
                           type: "spring",
-                          stiffness: 800,
-                          damping: 100,
+                          stiffness: 1000,
+                          damping: 60,
                           bounce: 0,
                         }} // Smooth timing
                         className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide"
                       >
-                        DRAG
+                        {isActive && isClicked ? "" : "DRAG"}
                       </motion.div>
                     </AnimatePresence>
                   </div>
