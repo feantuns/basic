@@ -268,15 +268,15 @@ export const FullScreenMenu = ({ isOpen }) => {
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={`active-${isActive}`}
-                        initial={{ y: 20 }} // Start slightly above and transparent
-                        animate={{ y: 0 }} // Slide down to normal position and fade in
-                        exit={{ y: -20 }} // Slide back up and fade out
+                        initial={{ y: 20 }}
+                        animate={{ y: 0 }}
+                        exit={{ y: -20 }}
                         transition={{
                           type: "spring",
                           stiffness: 1000,
                           damping: 60,
                           bounce: 0,
-                        }} // Smooth timing
+                        }}
                         className="relative text-sm font-semibold uppercase leading-[115%] tracking-wide"
                       >
                         {isActive && isClicked ? "" : "DRAG"}
