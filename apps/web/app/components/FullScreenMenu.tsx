@@ -102,7 +102,7 @@ const cardsSlideVariants: any = {
 };
 
 export const FullScreenMenu = ({ isOpen }) => {
-  const heroRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
 
   const springX = useSpring(0, {
@@ -117,15 +117,15 @@ export const FullScreenMenu = ({ isOpen }) => {
   });
 
   useEffect(() => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
     springX.set(rect?.width - OFFSET_X);
     springY.set(rect?.height / 2);
   }, [isOpen]);
 
   useEffect(() => {
     const handleMove = (e: any) => {
-      const { x, y } = getRelativePosition(e, heroRef.current);
+      const { x, y } = getRelativePosition(e, containerRef.current);
       springX.set(x);
       springY.set(y);
     };
@@ -136,8 +136,8 @@ export const FullScreenMenu = ({ isOpen }) => {
 
   useEffect(() => {
     const handleMouseMove = (e: any) => {
-      if (!heroRef.current) return;
-      const rect = heroRef.current.getBoundingClientRect();
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
       const isInside =
         e.clientX >= rect.left &&
         e.clientX <= rect.right &&
@@ -222,7 +222,7 @@ export const FullScreenMenu = ({ isOpen }) => {
               </div>
 
               <motion.div
-                ref={heroRef}
+                ref={containerRef}
                 variants={cardsSlideVariants}
                 initial="closed"
                 animate="open"
@@ -237,7 +237,7 @@ export const FullScreenMenu = ({ isOpen }) => {
                   document.body.style.cursor = "auto";
                   setIsActive(false);
                   springX.set(OFFSET_X);
-                  springY.set(Number(heroRef.current?.clientHeight) / 2);
+                  springY.set(Number(containerRef.current?.clientHeight) / 2);
                 }}
               >
                 {/* Custom cursor */}
